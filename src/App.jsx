@@ -15,6 +15,7 @@ import FieldSkills from './FieldSkills.jsx'
 import FieldExperience from './FieldExperience.jsx'
 import FieldEducation from './FieldEducation.jsx'
 import FieldLinks from './FieldLinks.jsx'
+import Dump from './Dump.jsx'
 
 export default function App() {
   //const [count, setCount] = useState(0)
@@ -34,6 +35,7 @@ export default function App() {
       <FieldEducation getter={state} setter={action} />
       <FieldLinks getter={state} setter={action} />
       <button onClick={print}> Sneak peek </button>
+      <Dump getter={state} />
     </>
   )
 }

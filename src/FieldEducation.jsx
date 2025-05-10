@@ -47,9 +47,7 @@ export default function FieldEducation({ getter, setter }){
       {
         getter.education.map(({institution, title, url, image}, indx) => 
           <div key={indx}>
-            {institution} 
-            {title} 
-            {url} 
+            {institution} {title} {url} 
             {image && <img src={image} />}
           <button onClick={()=>deleter(indx)}>x</button></div>)
       }
