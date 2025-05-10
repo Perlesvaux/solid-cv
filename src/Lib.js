@@ -27,6 +27,27 @@ function reducer(state, action) {
     case "delete profile":
       return {...state, profile:''}
 
+
+    case "update name":
+      return {...state, name:action.value}
+
+    case "delete name":
+      return {...state, name:''}
+
+
+    case "update email":
+      return {...state, email:action.value}
+
+    case "delete email":
+      return {...state, email:''}
+
+    case "update phone":
+      return {...state, phone:action.value}
+
+    case "delete phone":
+      return {...state, phone:''}
+
+    
     //case "updating":
     //  return {...state, [action.field]:{...state[action.field], value:action.value} }
     //

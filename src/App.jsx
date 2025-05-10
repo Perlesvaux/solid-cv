@@ -8,15 +8,24 @@
 import {useResume} from './Lib.js'
 
 import FieldProfile from './FieldProfile.jsx'
+import FieldName from './FieldName.jsx'
+import FieldEmail from './FieldEmail.jsx'
+import FieldPhone from './FieldPhone.jsx'
 
 export default function App() {
   //const [count, setCount] = useState(0)
 
   const [state, action, blueprint] = useResume()
 
+  const print = () => console.log(state)
+
   return (
     <>
       <FieldProfile getter={state} setter={action} />
+      <FieldName getter={state} setter={action} />
+      <FieldEmail getter={state} setter={action} />
+      <FieldPhone getter={state} setter={action} />
+      <button onClick={print}> Sneak peek </button>
     </>
   )
 }
