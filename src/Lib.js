@@ -55,6 +55,18 @@ function reducer(state, action) {
 
     case "delete skill":
       return {...state, skills:[...state.skills.filter((item, index) => index!==action.value ) ]}
+
+
+    case "add experience":
+      return {...state, experience:[...state.experience, action.value] }
+    
+    case "delete all experience":
+      return {...state, experience:[] }
+
+    case "delete experience":
+      return {...state, experience:[...state.experience.filter((item, index) => index!==action.value ) ]}
+
+    
     //case "updating":
     //  return {...state, [action.field]:{...state[action.field], value:action.value} }
     //
