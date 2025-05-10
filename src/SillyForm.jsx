@@ -1,45 +1,13 @@
-import {useReducer} from 'react'
+//import {useReducer} from 'react'
 import InputImage from './InputImage.jsx'
 import Input from './Input.jsx'
 import InputJSON from './InputJSON.jsx'
 import InputList from './InputList.jsx'
+import {useResume} from './Custom.js'
 
-
-const initialState = {
-  name:   {value:"",kind:"text"},
-  age:    {value:"",kind:"number"},
-  height: {value:"",kind:"text"},
-  sex:    {value:"",kind:"text"},
-  DOB:    {value:"",kind:"date"},
-  pfp:    {value:"",kind:"image"}
-}
-
-
-function reducer(state, action) {
-  switch (action.type){
-    //case "updateField":
-    //  return {...state, [action.field]:action.value};
-
-    case "updating":
-      return {...state, [action.field]:{...state[action.field], value:action.value} }
-
-    case "delete":
-      return {...state, [action.field]:{...state[action.field], value:""}}
-
-    case "clone":
-      return action.dump
-
-    case "initialState":
-      return initialState;
-
-    default:
-      throw new Error(`Unknown action: ${action.type}`);
-  }
-}
 
 export default function Sillyform(){
-
-  const [state, dispatch] = useReducer(reducer, initialState)
+  const [state, dispatch] = useResume()
 
   function handleImageChange(event, p){
     const file = event.target.files[0]
@@ -120,16 +88,20 @@ export default function Sillyform(){
     <InputList />
 
 
-    <InputJSON name={"Load from file"} changer={handleFileUpload}  />
-    {
-      Object.keys(initialState).map((property, i)=>
-        <div key={i}> { renderInputField(state[property].kind, property)  } </div>
-      )
-    }
 
   <button> Ok! </button>
 
-    {state.pfp.value && <img src={state.pfp.value} />}
 
   </form>)
 }
+
+
+
+    //<InputJSON name={"Load from file"} changer={handleFileUpload}  />
+    //{
+    //  Object.keys(initialState).map((property, i)=>
+    //    <div key={i}> { renderInputField(state[property].kind, property)  } </div>
+    //  )
+    //}
+
+    //{state.pfp.value && <img src={state.pfp.value} />}
