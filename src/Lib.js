@@ -52,6 +52,7 @@ function reducer(state, action) {
     case "delete phone":
       return {...state, phone:''}
 
+
     case "add skill":
       return {...state, skills:[...state.skills, action.value] }
     
@@ -60,6 +61,13 @@ function reducer(state, action) {
 
     case "delete skill":
       return {...state, skills:[...state.skills.filter((item, index) => index!==action.value ) ]}
+
+    case "update skill":
+    {
+      const skills = [...state.skills]
+      skills[action.at] = action.value
+      return {...state, skills }
+    }
 
 
     case "add experience":

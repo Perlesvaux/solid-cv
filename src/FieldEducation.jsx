@@ -39,8 +39,6 @@ export default function FieldEducation({ getter, setter }){
 
       <InputImage name="image" changer={handleImageChange} deleter={handleImageCancel} />
 
-
-
       <button onClick={updater}> Ok </button>
       <button onClick={wipeOut}> clear </button>
 

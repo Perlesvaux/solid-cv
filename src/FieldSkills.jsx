@@ -6,6 +6,7 @@ export default function FieldSkills({ getter, setter }){
   const wipeOut = () => setter({type:"delete all skills"})
   const updater = () => { setNewEntry(()=>""); setter({type:"add skill", value:newEntry}) }
   const deleter = (index) => setter({type:"delete skill", value:index})
+  const edit = (e, index) => setter({type:"update skill", value:e.target.value, at:index})
 
   return (
     <label >
@@ -16,7 +17,10 @@ export default function FieldSkills({ getter, setter }){
 
       {
         getter.skills.map((e, indx) => 
-          <div key={indx}>{e} <button onClick={()=>deleter(indx)}>x</button></div>)
+          <div key={indx}> 
+            <input type="text" value={e} onChange={(e)=>edit(e, indx)} /> 
+            <button onClick={()=>deleter(indx)}>x</button>
+          </div>)
       }
     </label>
   )
