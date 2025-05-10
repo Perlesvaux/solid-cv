@@ -13,8 +13,13 @@ const blueprint = {
   // Skills
   skills:          [],
 
+  // Education 
+  education: [],
+
   // Profile
   profile:         ''
+
+  
 }
 
 
@@ -67,6 +72,15 @@ function reducer(state, action) {
       return {...state, experience:[...state.experience.filter((item, index) => index!==action.value ) ]}
 
     
+    case "add education":
+      return {...state, education:[...state.education, action.value] }
+    
+    case "delete all education":
+      return {...state, education:[] }
+
+    case "delete education":
+      return {...state, education:[...state.education.filter((item, index) => index!==action.value ) ]}
+
     //case "updating":
     //  return {...state, [action.field]:{...state[action.field], value:action.value} }
     //

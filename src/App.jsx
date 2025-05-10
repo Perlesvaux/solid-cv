@@ -13,6 +13,7 @@ import FieldEmail from './FieldEmail.jsx'
 import FieldPhone from './FieldPhone.jsx'
 import FieldSkills from './FieldSkills.jsx'
 import FieldExperience from './FieldExperience.jsx'
+import FieldEducation from './FieldEducation.jsx'
 
 export default function App() {
   //const [count, setCount] = useState(0)
@@ -29,6 +30,7 @@ export default function App() {
       <FieldPhone getter={state} setter={action} />
       <FieldSkills getter={state} setter={action} />
       <FieldExperience getter={state} setter={action} />
+      <FieldEducation getter={state} setter={action} />
       <button onClick={print}> Sneak peek </button>
     </>
   )
