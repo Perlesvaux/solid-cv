@@ -125,3 +125,17 @@ export function handleImageChange(event, setter){
     console.log(file, file.name)
   }
 }
+
+
+
+
+
+export const downloadJSON = (target) => {
+  const blob = new Blob([JSON.stringify(target, null, 2)], { type: 'application/json' });
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = `CV - ${target.name || 'your'}.json`;
+  link.click();
+};
+
+
