@@ -114,3 +114,14 @@ export function useResume(){
   return [state, dispatch, blueprint]
 }
 
+
+
+export function handleImageChange(event, setter){
+  const file = event.target.files[0]
+  if (file) {
+    const reader = new FileReader();
+    reader.readAsDataURL(file)
+    reader.onloadend = ()=> setter() 
+    console.log(file, file.name)
+  }
+}
