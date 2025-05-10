@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 export default function FieldName({ getter, setter }){
 
   const deleter = () => setter({type:"delete name"})
@@ -14,3 +15,7 @@ export default function FieldName({ getter, setter }){
 
     //{ deleter && <div onClick={deleter}>X</div> }
 
+FieldName.propTypes = {
+  getter: PropTypes.object,
+  setter: PropTypes.func
+};

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 export default function FieldPhone({ getter, setter }){
 
   const deleter = () => setter({type:"delete phone"})
@@ -13,3 +14,7 @@ export default function FieldPhone({ getter, setter }){
 }
 
 
+FieldPhone.propTypes = {
+  getter: PropTypes.object,
+  setter: PropTypes.func
+};

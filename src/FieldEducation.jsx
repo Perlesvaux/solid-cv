@@ -1,7 +1,8 @@
+import PropTypes from 'prop-types';
 import {useState} from 'react'
 //import {handleImageChange} from './Lib.js'
 import InputImage from './InputImage.jsx'
-export default function Fieldeducation({ getter, setter }){
+export default function FieldEducation({ getter, setter }){
   const initial = {institution:"", title:"", url:"", image:""}
   const [newEntry, setNewEntry] = useState(initial)
   const handleNewEntry = (e) => setNewEntry({...newEntry, [e.target.name]: e.target.value})
@@ -55,6 +56,14 @@ export default function Fieldeducation({ getter, setter }){
     </>
   )
 }
+
+
+FieldEducation.propTypes = {
+  getter: PropTypes.object,
+  setter: PropTypes.func
+};
+
+
       //<label>Image
       //  <input type="text" name="image" value={newEntry.image} onChange={handleImageChange} />
       //</label>

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {useState} from 'react'
 export default function FieldLinks({ getter, setter }){
   const initial = {site:"", url:""}
@@ -31,3 +32,7 @@ export default function FieldLinks({ getter, setter }){
 
 
 
+FieldLinks.propTypes = {
+  getter: PropTypes.object,
+  setter: PropTypes.func
+};

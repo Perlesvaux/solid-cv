@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 export default function FieldEmail({ getter, setter }){
 
   const deleter = () => setter({type:"delete email"})
@@ -12,3 +13,15 @@ export default function FieldEmail({ getter, setter }){
   )
 }
 
+FieldEmail.propTypes = {
+  getter: PropTypes.object,
+  setter: PropTypes.func
+};
+
+//FieldEmail.propTypes = {
+//
+//  name: PropTypes.string.isRequired,
+//
+//  children: PropTypes.node
+//
+//};

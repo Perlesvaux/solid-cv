@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export default function FieldProfile({ getter, setter }){
 
   const deleter = () => setter({type:"delete profile"})
@@ -12,4 +14,8 @@ export default function FieldProfile({ getter, setter }){
   )
 }
 
+FieldProfile.propTypes = {
+  getter: PropTypes.object,
+  setter: PropTypes.func
+};
     //{ deleter && <div onClick={deleter}>X</div> }

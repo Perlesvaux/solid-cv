@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {useState} from 'react'
 export default function FieldSkills({ getter, setter }){
   const [newEntry, setNewEntry] = useState("")
@@ -21,3 +22,8 @@ export default function FieldSkills({ getter, setter }){
   )
 }
 
+
+FieldSkills.propTypes = {
+  getter: PropTypes.object,
+  setter: PropTypes.func
+};

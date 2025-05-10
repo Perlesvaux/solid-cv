@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {useState} from 'react'
 export default function FieldExperience({ getter, setter }){
   const initial = {where:"", when:"", what:"", desc:""}
@@ -37,3 +38,7 @@ export default function FieldExperience({ getter, setter }){
 }
 
 
+FieldExperience.propTypes = {
+  getter: PropTypes.object,
+  setter: PropTypes.func
+};
