@@ -11,6 +11,7 @@ import FieldProfile from './FieldProfile.jsx'
 import FieldName from './FieldName.jsx'
 import FieldEmail from './FieldEmail.jsx'
 import FieldPhone from './FieldPhone.jsx'
+import FieldSkills from './FieldSkills.jsx'
 
 export default function App() {
   //const [count, setCount] = useState(0)
@@ -25,6 +26,7 @@ export default function App() {
       <FieldName getter={state} setter={action} />
       <FieldEmail getter={state} setter={action} />
       <FieldPhone getter={state} setter={action} />
+      <FieldSkills getter={state} setter={action} />
       <button onClick={print}> Sneak peek </button>
     </>
   )
