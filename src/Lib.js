@@ -5,7 +5,7 @@ const blueprint = {
   name:            '',
   phone:           '',
   email:           '',
-  external_links:  [],
+  links:  [],
 
   // Experience
   experience:      [],
@@ -80,6 +80,17 @@ function reducer(state, action) {
 
     case "delete education":
       return {...state, education:[...state.education.filter((item, index) => index!==action.value ) ]}
+
+
+    case "add link":
+      return {...state, links:[...state.links, action.value] }
+    
+    case "delete all links":
+      return {...state, links:[] }
+
+    case "delete link":
+      return {...state, links:[...state.links.filter((item, index) => index!==action.value ) ]}
+
 
     //case "updating":
     //  return {...state, [action.field]:{...state[action.field], value:action.value} }
