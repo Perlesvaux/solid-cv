@@ -65,7 +65,7 @@ function reducer(state, action) {
     case "update skill":
     {
       const skills = [...state.skills]
-      skills[action.at] = action.value
+      skills[action.at][action.fieldname] = action.value
       return {...state, skills }
     }
 
