@@ -10,6 +10,8 @@ export default function FieldEducation({ getter, setter }){
   const wipeOut = () => setter({type:"delete all education"})
   const updater = () => { setNewEntry(()=>initial); setter({type:"add education", value:newEntry}) }
   const deleter = (index) => setter({type:"delete education", value:index})
+  const edit = (e, index) => setter({type:"update education", value:e.target.value, at:index, fieldname:e.target.name})
+  //const editImage = (e, index) => setter({type:"update education", value:"", at:index, fieldname:}) 
   
 
 
@@ -39,13 +41,18 @@ export default function FieldEducation({ getter, setter }){
       {
         getter.education.map(({institution, title, url, image}, indx) => 
           <div key={indx}>
-            {institution} {title} {url} 
+            <input type="text" name="institution" value={institution} onChange={(e)=>edit(e, indx)} />
+            <input type="text" name="title" value={title}       onChange={(e)=>edit(e, indx)} />
+            <input type="text" name="url" value={url}         onChange={(e)=>edit(e, indx)} />
             {image && <img src={image} />}
-          <button onClick={()=>deleter(indx)}>x</button></div>)
+            <button onClick={()=>deleter(indx)}>x</button>
+
+          </div>)
       }
     </>
   )
 }
+//<InputImage name="image" changer={} /> 
 
 
 FieldEducation.propTypes = {

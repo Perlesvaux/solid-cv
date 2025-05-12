@@ -97,6 +97,13 @@ function reducer(state, action) {
     case "delete education":
       return {...state, education:[...state.education.filter((item, index) => index!==action.value ) ]}
 
+    case "update education":
+    {
+      const education = [...state.education]
+      education[action.at][action.fieldname] = action.value
+      return {...state, education }
+    }
+
 
     case "add link":
       return {...state, links:[...state.links, action.value] }
