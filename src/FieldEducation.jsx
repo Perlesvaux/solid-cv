@@ -5,13 +5,15 @@ import InputImage from './InputImage.jsx'
 import ImageInput from './ImageInput.jsx'
 
 export default function FieldEducation({ getter, setter }){
-  const initial = {institution:"", title:"", url:"", image:""}
+  const initial = {institution:'', title:'', url:'', image:''}
   const [newEntry, setNewEntry] = useState(initial)
+
   const handleNewEntry = (e) => setNewEntry({...newEntry, [e.target.name]: e.target.value})
-  const wipeOut = () => setter({type:"delete all education"})
-  const updater = () => { setNewEntry(()=>initial); setter({type:"add education", value:newEntry}) }
-  const deleter = (index) => setter({type:"delete education", value:index})
-  const edit = (index, name, value) => setter({type:"update education", value:value, at:index, fieldname:name})
+
+  const wipeOut = () => setter({type:'delete all entries', field: 'education'})
+  const updater = () => { setNewEntry(()=>initial); setter({type:'add entry', field:'education', value:newEntry}) }
+  const deleter = (index) => setter({type:'delete entry', field:'education', value:index})
+  const edit = (index, name, value) => setter({type:'update entry', field:'education', value:value, at:index, part:name})
   //const editImage = (e, index) => setter({type:"update education", value:"", at:index, fieldname:}) 
   
 

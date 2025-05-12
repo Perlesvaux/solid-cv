@@ -10,12 +10,15 @@ export default function ImageInput({ name, changer, index }){
     if (file) {
       const reader = new FileReader();
       reader.readAsDataURL(file)
-      reader.onloadend = () => changer({type:"update education", value:reader.result, at:index, fieldname:name}) 
+      reader.onloadend = () => changer({type:'update entry', field:'education', value:reader.result, at:index, part:name}) 
       console.log(file, file.name)
     }
   }
 
-  const deleter = () => { changer({ type:"update education", value:"", at:index, fieldname:name }); ref.current.value='' }
+  const deleter = () => { 
+    changer({ type:'update entry', field:'education', value:'', at:index, part:name })
+    ref.current.value='' 
+  }
 
   const handleImageChange = (e) => {
     imageToDataURL(e, index)
@@ -23,7 +26,7 @@ export default function ImageInput({ name, changer, index }){
 
   return(<>
     <label> {name}
-      <input name={name} type="file" accept="image/*" ref={ref} onChange={handleImageChange}/>
+      <input name={name} type='file' accept='image/*' ref={ref} onChange={handleImageChange}/>
       <button onClick={ deleter }>unload</button>
     </label>
   </>)
