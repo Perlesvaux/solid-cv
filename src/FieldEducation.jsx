@@ -10,9 +10,19 @@ export default function FieldEducation({ getter, setter }){
   const wipeOut = () => setter({type:"delete all education"})
   const updater = () => { setNewEntry(()=>initial); setter({type:"add education", value:newEntry}) }
   const deleter = (index) => setter({type:"delete education", value:index})
-  const edit = (e, index) => setter({type:"update education", value:e.target.value, at:index, fieldname:e.target.name})
+  const edit = (index, name, value) => setter({type:"update education", value:value, at:index, fieldname:name})
   //const editImage = (e, index) => setter({type:"update education", value:"", at:index, fieldname:}) 
   
+
+  const imgAsDataURL = (event, index, name) => {
+  const file = event.target.files[0]
+  if (file) {
+    const reader = new FileReader();
+    reader.readAsDataURL(file)
+    reader.onloadend = ()=> setter({type:"update education", value:reader.result, at:index, fieldname:name}) 
+    console.log(file, file.name)
+  }
+}
 
 
   const imageChanger = (readerResult) => setNewEntry({ ...newEntry, image:readerResult }) 
@@ -41,10 +51,10 @@ export default function FieldEducation({ getter, setter }){
       {
         getter.education.map(({institution, title, url, image}, indx) => 
           <div key={indx}>
-            <input type="text" name="institution" value={institution} onChange={(e)=>edit(e, indx)} />
-            <input type="text" name="title" value={title}       onChange={(e)=>edit(e, indx)} />
-            <input type="text" name="url" value={url}         onChange={(e)=>edit(e, indx)} />
-            {image && <img src={image} />}
+            <input type="text" name="institution" value={institution} onChange={(e)=>edit(indx, e.target.name, e.target.value)} />
+            <input type="text" name="title" value={title}       onChange={(e)=>edit(indx, e.target.name, e.target.value)} />
+            <input type="text" name="url" value={url}         onChange={(e)=>edit(indx, e.target.name, e.target.value)} />
+            <InputImage name="image" changer={(e)=>imgAsDataURL(e, indx, "image")} deleter={()=> edit(indx, "image", "")} />{image && <img src={image} />}
             <button onClick={()=>deleter(indx)}>x</button>
 
           </div>)
