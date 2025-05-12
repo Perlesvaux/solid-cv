@@ -7,6 +7,7 @@ export default function FieldLinks({ getter, setter }){
   const wipeOut = () => setter({type:"delete all links"})
   const updater = () => { setNewEntry(()=>initial); setter({type:"add link", value:newEntry}) }
   const deleter = (index) => setter({type:"delete link", value:index})
+  const edit = (e, index) => setter({type:"update links", value:e.target.value, at:index, fieldname:e.target.name})
 
   return (
     <>
@@ -18,13 +19,16 @@ export default function FieldLinks({ getter, setter }){
         <input type="url" name="url" value={newEntry.url} onChange={handleNewEntry} />
       </label>
 
-
       <button onClick={updater}> Ok </button>
       <button onClick={wipeOut}> clear </button>
 
       {
         getter.links.map(({site, url}, indx) => 
-          <div key={indx}>{site} {url}<button onClick={()=>deleter(indx)}>x</button></div>)
+          <div key={indx}>
+            <input type="text" name="site" value={site} onChange={(e)=>edit(e, indx) } />
+            <input type="text" name="url" value={url}  onChange={(e)=>edit(e, indx) } />
+            <button onClick={()=>deleter(indx)}>x</button>
+          </div>)
       }
     </>
   )

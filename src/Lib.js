@@ -99,6 +99,13 @@ function reducer(state, action) {
     case "delete link":
       return {...state, links:[...state.links.filter((item, index) => index!==action.value ) ]}
 
+    case "update links":
+    {
+      const links = [...state.links]
+      links[action.at][action.fieldname] = action.value
+      return {...state, links }
+    }
+
 
     //case "updating":
     //  return {...state, [action.field]:{...state[action.field], value:action.value} }
