@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import {useState} from 'react'
-//import {handleImageChange} from './Lib.js'
+import {imageToDataURL} from './Lib.js'
 import InputImage from './InputImage.jsx'
+
 export default function FieldEducation({ getter, setter }){
   const initial = {institution:"", title:"", url:"", image:""}
   const [newEntry, setNewEntry] = useState(initial)
@@ -11,16 +12,9 @@ export default function FieldEducation({ getter, setter }){
   const deleter = (index) => setter({type:"delete education", value:index})
   
 
-  function handleImageChange(event){
-    const file = event.target.files[0]
-    if (file) {
-      const reader = new FileReader();
-      reader.readAsDataURL(file)
-      reader.onloadend = ()=> setNewEntry({ ...newEntry, image:reader.result }) 
-      console.log(file, file.name)
-    }
-  }
 
+  const imageChanger = (readerResult) => setNewEntry({ ...newEntry, image:readerResult }) 
+  const handleImageChange = (e) => imageToDataURL(e, imageChanger )
   const handleImageCancel = () => setNewEntry({...newEntry, image:''}) 
 
   return (

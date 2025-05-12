@@ -7,6 +7,7 @@ export default function FieldExperience({ getter, setter }){
   const wipeOut = () => setter({type:"delete all experience"})
   const updater = () => { setNewEntry(()=>initial); setter({type:"add experience", value:newEntry}) }
   const deleter = (index) => setter({type:"delete experience", value:index})
+  const edit = (e, index) => setter({type:"update experience", value:e.target.value, at:index, fieldname:e.target.name})
 
   return (
     <>
@@ -31,7 +32,13 @@ export default function FieldExperience({ getter, setter }){
 
       {
         getter.experience.map(({when, where, what, desc}, indx) => 
-          <div key={indx}>{when} {where} {what} {desc} <button onClick={()=>deleter(indx)}>x</button></div>)
+          <div key={indx}>
+            <input name="when"  type="text" value={when}  onChange={(e)=>edit(e, indx)} /> 
+            <input name="where" type="text" value={where} onChange={(e)=>edit(e, indx)} /> 
+            <input name="what"  type="text" value={what}  onChange={(e)=>edit(e, indx)} /> 
+            <input name="desc"  type="text" value={desc}  onChange={(e)=>edit(e, indx)} /> 
+            <button onClick={()=>deleter(indx)}>x</button>
+          </div>)
       }
     </>
   )

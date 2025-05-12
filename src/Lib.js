@@ -79,6 +79,14 @@ function reducer(state, action) {
     case "delete experience":
       return {...state, experience:[...state.experience.filter((item, index) => index!==action.value ) ]}
 
+    case "update experience":
+    {
+      const experience = [...state.experience]
+      experience[action.at][action.fieldname] = action.value
+      return {...state, experience }
+    }
+
+
     
     case "add education":
       return {...state, education:[...state.education, action.value] }
@@ -131,12 +139,12 @@ export function useResume(){
 
 
 
-export function handleImageChange(event, setter){
+export function imageToDataURL(event, func){
   const file = event.target.files[0]
   if (file) {
     const reader = new FileReader();
     reader.readAsDataURL(file)
-    reader.onloadend = ()=> setter() 
+    reader.onloadend = ()=> func(reader.result) 
     console.log(file, file.name)
   }
 }
@@ -153,4 +161,15 @@ export const downloadJSON = (target) => {
   link.click();
 };
 
+
+
+  //function handleImageChange(event){
+  //  const file = event.target.files[0]
+  //  if (file) {
+  //    const reader = new FileReader();
+  //    reader.readAsDataURL(file)
+  //    reader.onloadend = ()=> setNewEntry({ ...newEntry, image:reader.result }) 
+  //    console.log(file, file.name)
+  //  }
+  //}
 
