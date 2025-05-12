@@ -16,7 +16,6 @@ export default function ImageInput({ name, changer, index }){
   }
 
   const deleter = () => { changer({ type:"update education", value:"", at:index, fieldname:name }); ref.current.value='' }
-  //const edit = (index, name, value) => setter({type:"update education", value:reader.result, at:index, fieldname:name})
 
   const handleImageChange = (e) => {
     imageToDataURL(e, index)
@@ -34,7 +33,5 @@ export default function ImageInput({ name, changer, index }){
 ImageInput.propTypes = {
   name:PropTypes.string.isRequired,
   changer:PropTypes.func.isRequired,
-  //deleter:PropTypes.func.isRequired,
   index:PropTypes.number.isRequired,
-  //deleter:PropTypes.func.isRequired
 }
