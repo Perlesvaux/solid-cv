@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import {useState} from 'react'
 import {imageToDataURL} from './Lib.js'
 import InputImage from './InputImage.jsx'
+import ImageInput from './ImageInput.jsx'
 
 export default function FieldEducation({ getter, setter }){
   const initial = {institution:"", title:"", url:"", image:""}
@@ -54,7 +55,7 @@ export default function FieldEducation({ getter, setter }){
             <input type="text" name="institution" value={institution} onChange={(e)=>edit(indx, e.target.name, e.target.value)} />
             <input type="text" name="title" value={title}       onChange={(e)=>edit(indx, e.target.name, e.target.value)} />
             <input type="text" name="url" value={url}         onChange={(e)=>edit(indx, e.target.name, e.target.value)} />
-            <InputImage name="image" changer={(e)=>imgAsDataURL(e, indx, "image")} deleter={()=> edit(indx, "image", "")} />{image && <img src={image} />}
+            <ImageInput name="image" changer={setter} index={indx}/> {image && <img src={image} />}
             <button onClick={()=>deleter(indx)}>x</button>
 
           </div>)
@@ -63,6 +64,8 @@ export default function FieldEducation({ getter, setter }){
   )
 }
 //<InputImage name="image" changer={} /> 
+//
+            //<InputImage name="image" changer={(e)=>imgAsDataURL(e, indx, "image")} deleter={()=> edit(indx, "image", "")} />{image && <img src={image} />}
 
 
 FieldEducation.propTypes = {
