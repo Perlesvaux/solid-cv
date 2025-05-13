@@ -14,7 +14,7 @@ export default defineConfig({
       manifest: {
         name: 'Solid Résumé',
         short_name: 'SolidResume',
-        description: 'Make your own Solid Résumé in minutes! ',
+        description: 'A CV to surpass all hiring filters! Make your own Solid Résumé in minutes! ',
         theme_color: '#2d2d2d',
         icons: [
             {
