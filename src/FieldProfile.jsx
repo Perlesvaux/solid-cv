@@ -1,16 +1,19 @@
 import PropTypes from 'prop-types';
+import {useHandler} from './Lib.js'
+import Input from './Input.jsx'
 
 export default function FieldProfile({ getter, setter }){
 
-  const deleter = () => setter({type:"delete profile"})
-  const updater = (e) => setter({type:"update profile", value:e.target.value})
+  const { singleUpdate, singleDelete } = useHandler(setter, 'profile')
 
   return (
-    <label >
-      Profile
-      <input type="text" value={getter.profile} onChange={updater} />
-      <button onClick={deleter}> delete </button>
-    </label>
+    <Input 
+      type='text' 
+      name='profile'
+      value={getter.profile} 
+      onChange={singleUpdate} 
+      deleter={singleDelete}
+    />
   )
 }
 

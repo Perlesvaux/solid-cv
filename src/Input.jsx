@@ -5,7 +5,7 @@ export default function Input({ index, name, type, value, onChange, deleter }){
     <label>
       { name }
       <input data-index={index} name={name} type={type} value={value} onChange={onChange} />
-      { deleter && <div onClick={deleter}>X</div> }
+      { deleter && <button onClick={deleter}>X</button> }
     </label>
   </>)
 }

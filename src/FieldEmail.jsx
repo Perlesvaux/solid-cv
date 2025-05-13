@@ -1,15 +1,18 @@
 import PropTypes from 'prop-types';
+import {useHandler} from './Lib.js'
+import Input from './Input.jsx'
+
 export default function FieldEmail({ getter, setter }){
 
-  const deleter = () => setter({type:"delete email"})
-  const updater = (e) => setter({type:"update email", value:e.target.value})
+  const { singleUpdate, singleDelete } = useHandler(setter, 'email')
 
   return (
-    <label >
-      Email
-      <input type="email" value={getter.email} onChange={updater} />
-      <button onClick={deleter}> delete </button>
-    </label>
+    <Input 
+      type="email" 
+      name="email" 
+      value={getter.email} 
+      onChange={singleUpdate} 
+      deleter={singleDelete} />
   )
 }
 

@@ -108,10 +108,10 @@ export function useHandler (setter, field, initial){
 
 
   // Enhanced simple property shared state setters (manipulate new/existing value of: name, phone, email, profile)
-  const singlePropertyUpdate = (e) => setter({type:'update property', field:field, value:e.target.value}) 
-  const singlePropertyDelete = () => setter({type:'delete property', field:field, value:''})
+  const singleUpdate = (e) => setter({type:'update property', field:field, value:e.target.value}) 
+  const singleDelete = () => setter({type:'delete property', field:field, value:''})
 
-  return {newEntry, modifyText, modifyImage, eraseImage, entryPurge, entryDelete, entryEdit, confirm, entryImageDelete, entryImageEdit, singlePropertyUpdate, singlePropertyDelete}
+  return {newEntry, modifyText, modifyImage, eraseImage, entryPurge, entryDelete, entryEdit, confirm, entryImageDelete, entryImageEdit, singleUpdate, singleDelete}
 
 
 

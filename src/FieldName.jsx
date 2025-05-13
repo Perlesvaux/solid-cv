@@ -4,15 +4,15 @@ import Input from './Input.jsx'
 
 export default function FieldName({ getter, setter }){
 
-  const { singlePropertyUpdate, singlePropertyDelete } = useHandler(setter, 'name')
+  const { singleUpdate, singleDelete } = useHandler(setter, 'name')
 
   return (
     <Input 
       type="text" 
       name="name"
       value={getter.name} 
-      onChange={singlePropertyUpdate} 
-      deleter={singlePropertyDelete} />
+      onChange={singleUpdate} 
+      deleter={singleDelete} />
   )
 }
 

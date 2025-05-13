@@ -1,15 +1,18 @@
 import PropTypes from 'prop-types';
+import {useHandler} from './Lib.js'
+import Input from './Input.jsx'
+
 export default function FieldPhone({ getter, setter }){
 
-  const deleter = () => setter({type:"delete phone"})
-  const updater = (e) => setter({type:"update phone", value:e.target.value})
+  const { singleUpdate, singleDelete } = useHandler(setter, 'phone')
 
   return (
-    <label >
-      phone
-      <input type="tel" value={getter.phone} onChange={updater} />
-      <button onClick={deleter}> delete </button>
-    </label>
+    <Input 
+      type="tel" 
+      name="phone" 
+      value={getter.phone} 
+      onChange={singleUpdate} 
+      deleter={singleDelete} />
   )
 }
 

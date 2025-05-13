@@ -26,16 +26,22 @@ export default function App() {
 
   return (
     <>
-      {
-        //<FieldProfile getter={state} setter={action} />
-        //  <FieldEmail getter={state} setter={action} />
-        //  <FieldPhone getter={state} setter={action} />
-          //<FieldExperience getter={state} setter={action} />
-          //<FieldSkills getter={state} setter={action} />
-          //<FieldLinks getter={state} setter={action} />
-      }
-          <FieldName getter={state} setter={action} />
+      <h2>Contact</h2>
+      <FieldName getter={state} setter={action} />
+      <FieldEmail getter={state} setter={action} />
+      <FieldPhone getter={state} setter={action} />
+      <FieldLinks getter={state} setter={action} />
+
+      <h2>Skills</h2>
+      <FieldSkills getter={state} setter={action} />
+      <h2>Experience</h2>
+      <FieldExperience getter={state} setter={action} />
+      <h2>Education</h2>
       <FieldEducation getter={state} setter={action} />
+
+      <h2>Profile</h2>
+      <FieldProfile getter={state} setter={action} />
+
       <button onClick={print}> Sneak peek </button>
       <Dump getter={state} />
     </>
