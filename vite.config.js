@@ -4,7 +4,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base:'/testing-pwa-plugin/' ,
+  base:'/solid-resume/' ,
   plugins: [
     react(),
     VitePWA({
@@ -12,17 +12,17 @@ export default defineConfig({
       includeAssets: ['vite.svg'], // Add your static assets
       devOptions:{enabled:true},
       manifest: {
-        name: 'testing',
-        short_name: 'ReactPWA',
-        description: 'A simple React PWA built with Vite',
-        theme_color: '#ffffff',
+        name: 'Solid Résumé',
+        short_name: 'SolidResume',
+        description: 'Make your own Solid Résumé in minutes! ',
+        theme_color: '#2d2d2d',
         icons: [
             {
               "src": "favicon.png",
               "sizes": "192x192",
               "type": "image/png"
             }],
-        start_url: "/testing-pwa-plugin/",
+        start_url:'/solid-resume/' ,
         screenshots: [
         {
           src: "screenshot-narrow.png",
