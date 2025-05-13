@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import {useHandler} from './Lib.js'
-import EntryImageInput from './EntryImageInput.jsx'
+import InputImage from './InputImage.jsx'
 
 export default function FieldEducation({ getter, setter }){
   const initial = {institution:'', title:'', url:'', image:''}
@@ -30,7 +30,7 @@ export default function FieldEducation({ getter, setter }){
         <input type="text" name="url" value={newEntry.url} onChange={modifyText} />
       </label>
 
-      <EntryImageInput name="image" onChange={modifyImage} deleter={eraseImage} />
+      <InputImage name="image" onChange={modifyImage} deleter={eraseImage} />
 
       <button onClick={confirm}> Ok </button>
       <button onClick={entryPurge}> clear </button>
@@ -41,22 +41,14 @@ export default function FieldEducation({ getter, setter }){
             <input onChange={entryEdit} data-index={indx} type='text' name='institution' value={institution}/>
             <input onChange={entryEdit} data-index={indx} type='text' name='title' value={title}  />
             <input onChange={entryEdit} data-index={indx} type='text' name='url' value={url} />
-            <EntryImageInput 
-              index={indx}
-              name='image'
-              onChange={ entryImageEdit } 
-              deleter={ entryImageDelete }
-            /> 
+            <InputImage index={indx} name='image' onChange={entryImageEdit} deleter={entryImageDelete} /> 
             {image && <img src={image} />}
             <button data-index={indx} onClick={entryDelete}>x</button>
-
           </div>)
       }
     </>
   )
 }
-
-              //deleter={() => setter({ type:'update entry', field:'education', value:'', at:indx, part:'image' })}
 
 FieldEducation.propTypes = {
   getter: PropTypes.object,
