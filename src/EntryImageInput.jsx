@@ -16,7 +16,7 @@ export default function EntryImageInput({ name, onChange, index, field }){
   }
 
   const deleter = () => { 
-    onChange({ type:'update entry', field:'education', value:'', at:index, part:name })
+    onChange({ type:'update entry', field:field, value:'', at:index, part:name })
     ref.current.value='' 
   }
 
