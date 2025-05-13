@@ -260,8 +260,8 @@ export function useHandler (setter, field, initial){
   const entryDelete = (e) => {setter({type:'delete entry', field:field, value:Number(e.target.dataset.index)});console.log(field, e.target.dataset.index)}
   const entryEdit = (e) => setter({type:'update entry', field:field, value:e.target.value, at:Number(e.target.dataset.index), part:e.target.name})
 
-  const entryImageDelete = (indx) => setter({ type:'update entry', field:'education', value:'', at:indx, part:'image' })
-  const entryImageEdit = (readerResult, index) => setter({type:'update entry', field:'education', value:readerResult, at:index, part:'image'})
+  const entryImageDelete = (indx, part) => setter({ type:'update entry', field:field, value:'', at:indx, part:part })
+  const entryImageEdit = (readerResult, index, part) => setter({type:'update entry', field:field, value:readerResult, at:index, part:part})
 
   const singlePropertyUpdate = (e) => setter({type:'update property', field:field, value:e.target.value}) 
   const singlePropertyDelete = () => setter({type:'delete property', field:field, value:''})
