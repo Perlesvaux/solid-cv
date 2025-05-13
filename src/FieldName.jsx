@@ -1,19 +1,20 @@
 import PropTypes from 'prop-types';
+import {useHandler} from './Lib.js'
+import Input from './Input.jsx'
+
 export default function FieldName({ getter, setter }){
 
-  const deleter = () => setter({type:"delete name"})
-  const updater = (e) => setter({type:"update name", value:e.target.value})
+  const { singlePropertyUpdate, singlePropertyDelete } = useHandler(setter, 'name')
 
   return (
-    <label >
-      Name
-      <input type="text" value={getter.name} onChange={updater} />
-      <button onClick={deleter}> delete </button>
-    </label>
+    <Input 
+      type="text" 
+      name="name"
+      value={getter.name} 
+      onChange={singlePropertyUpdate} 
+      deleter={singlePropertyDelete} />
   )
 }
-
-    //{ deleter && <div onClick={deleter}>X</div> }
 
 FieldName.propTypes = {
   getter: PropTypes.object,

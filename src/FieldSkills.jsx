@@ -10,8 +10,8 @@ export default function FieldSkills({ getter, setter }){
     entryEdit, 
     confirm} = useHandler(setter, 'skills', initial)
 
-  return (<>
-      Skills
+  return (
+    <>
       <Input type="text" name="icon"  value={newEntry.icon} onChange={modifyText} />
       <Input type="text" name="skill" value={newEntry.skill} onChange={modifyText} />
       <button onClick={confirm}> Ok </button>
@@ -25,7 +25,8 @@ export default function FieldSkills({ getter, setter }){
             <button data-index={indx} onClick={entryDelete}>x</button>
           </div>)
       }
-    </>)
+    </>
+  )
 }
 
 

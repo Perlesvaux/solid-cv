@@ -263,7 +263,10 @@ export function useHandler (setter, field, initial){
   const entryImageDelete = (indx) => setter({ type:'update entry', field:'education', value:'', at:indx, part:'image' })
   const entryImageEdit = (readerResult, index) => setter({type:'update entry', field:'education', value:readerResult, at:index, part:'image'})
 
-  return {newEntry, modifyText, modifyImage, eraseImage, entryPurge, entryDelete, entryEdit, confirm, entryImageDelete, entryImageEdit}
+  const singlePropertyUpdate = (e) => setter({type:'update property', field:field, value:e.target.value}) 
+  const singlePropertyDelete = () => setter({type:'delete property', field:field, value:''})
+
+  return {newEntry, modifyText, modifyImage, eraseImage, entryPurge, entryDelete, entryEdit, confirm, entryImageDelete, entryImageEdit, singlePropertyUpdate, singlePropertyDelete}
 
 
 
