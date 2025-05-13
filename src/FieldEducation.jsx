@@ -11,26 +11,14 @@ export default function FieldEducation({ getter, setter }){
   const handleNewEntry = (e) => setNewEntry({...newEntry, [e.target.name]: e.target.value})
 
   const wipeOut = () => setter({type:'delete all entries', field: 'education'})
-  const updater = () => { setNewEntry(()=>initial); setter({type:'add entry', field:'education', value:newEntry}) }
+  //const updater = 
   const deleter = (index) => setter({type:'delete entry', field:'education', value:index})
   const edit = (index, name, value) => setter({type:'update entry', field:'education', value:value, at:index, part:name})
-  //const editImage = (e, index) => setter({type:"update education", value:"", at:index, fieldname:}) 
-  
 
-  const imgAsDataURL = (event, index, name) => {
-  const file = event.target.files[0]
-  if (file) {
-    const reader = new FileReader();
-    reader.readAsDataURL(file)
-    reader.onloadend = ()=> setter({type:"update education", value:reader.result, at:index, fieldname:name}) 
-    console.log(file, file.name)
-  }
-}
-
-
-  const imageChanger = (readerResult) => setNewEntry({ ...newEntry, image:readerResult }) 
-  const handleImageChange = (e) => imageToDataURL(e, imageChanger )
-  const handleImageCancel = () => setNewEntry({...newEntry, image:''}) 
+  //const imageChanger2 = (readerResult) => setter({type:'update entry', field:'education', value:readerResult, at:index, part:'image'}) 
+  //const imageChanger = (readerResult) => setNewEntry({ ...newEntry, image:readerResult }) 
+  //const handleImageChange = (e) => imageToDataURL(e, imageChanger )
+  //const handleImageCancel = () => setNewEntry({...newEntry, image:''}) 
 
   return (
     <>
@@ -46,18 +34,27 @@ export default function FieldEducation({ getter, setter }){
         <input type="text" name="url" value={newEntry.url} onChange={handleNewEntry} />
       </label>
 
-      <InputImage name="image" changer={handleImageChange} deleter={handleImageCancel} />
+      <EntryImageInput 
+        name="image"
+        onChange={(readerResult) => setNewEntry({ ...newEntry, image:readerResult })}
+        deleter={() => setNewEntry({...newEntry, image:''})}
+      />
 
-      <button onClick={updater}> Ok </button>
+      <button onClick={() => { setNewEntry(()=>initial); setter({type:'add entry', field:'education', value:newEntry}) }}> Ok </button>
       <button onClick={wipeOut}> clear </button>
 
       {
         getter.education.map(({institution, title, url, image}, indx) => 
           <div key={indx}>
-            <input type="text" name="institution" value={institution} onChange={(e)=>edit(indx, e.target.name, e.target.value)} />
-            <input type="text" name="title" value={title}       onChange={(e)=>edit(indx, e.target.name, e.target.value)} />
-            <input type="text" name="url" value={url}         onChange={(e)=>edit(indx, e.target.name, e.target.value)} />
-            <EntryImageInput index={indx} name="image" field="education" onChange={setter} /> {image && <img src={image} />}
+            <input type='text' name='institution' value={institution} onChange={(e)=>edit(indx, e.target.name, e.target.value)} />
+            <input type='text' name='title' value={title}       onChange={(e)=>edit(indx, e.target.name, e.target.value)} />
+            <input type='text' name='url' value={url}         onChange={(e)=>edit(indx, e.target.name, e.target.value)} />
+            <EntryImageInput 
+              name='image'
+              onChange={(readerResult) => setter({type:'update entry', field:'education', value:readerResult, at:indx, part:'image'})} 
+              deleter={() => setter({ type:'update entry', field:'education', value:'', at:indx, part:'image' })}
+            /> 
+            {image && <img src={image} />}
             <button onClick={()=>deleter(indx)}>x</button>
 
           </div>)

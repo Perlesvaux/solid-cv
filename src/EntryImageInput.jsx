@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { useRef } from 'react'
 
-export default function EntryImageInput({ name, onChange, index, field }){
+export default function EntryImageInput({ name, onChange, deleter }){
 
   const ref = useRef(null)
 
@@ -10,13 +10,13 @@ export default function EntryImageInput({ name, onChange, index, field }){
     if (file) {
       const reader = new FileReader();
       reader.readAsDataURL(file)
-      reader.onloadend = () => onChange({type:'update entry', field:field, value:reader.result, at:index, part:name}) 
+      reader.onloadend = () => onChange(reader.result) 
       console.log(file, file.name)
     }
   }
 
-  const deleter = () => { 
-    onChange({ type:'update entry', field:field, value:'', at:index, part:name })
+  const handleImageDelete = () => { 
+    deleter()
     ref.current.value='' 
   }
 
@@ -27,7 +27,7 @@ export default function EntryImageInput({ name, onChange, index, field }){
   return(<>
     <label> {name}
       <input name={name} type='file' accept='image/*' ref={ref} onChange={handleImageChange}/>
-      <button onClick={ deleter }>unload</button>
+      <button onClick={ handleImageDelete }>unload</button>
     </label>
   </>)
 }
@@ -36,6 +36,5 @@ export default function EntryImageInput({ name, onChange, index, field }){
 EntryImageInput.propTypes = {
   name:PropTypes.string.isRequired,
   onChange:PropTypes.func.isRequired,
-  index:PropTypes.number.isRequired,
-  field:PropTypes.string.isRequired,
+  deleter:PropTypes.func.isRequired,
 }
