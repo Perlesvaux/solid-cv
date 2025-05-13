@@ -49,7 +49,7 @@ function reducer(state, action) {
     {
       const entries = [...state[field] ]
       entries[at][part] = value
-      return {...state, entries }
+      return {...state, [field]:entries }
     }
 
 
