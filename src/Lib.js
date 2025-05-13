@@ -1,4 +1,4 @@
-import {useReducer} from 'react'
+import {useReducer, useState} from 'react'
 
 const blueprint = {
   // Contact
@@ -245,3 +245,23 @@ export const downloadJSON = (target) => {
   //  }
   //}
 
+
+export function useHandler (setter, field, initial){
+  //const initial = {institution:'', title:'', url:'', image:''}
+  const [newEntry, setNewEntry] = useState(initial)
+  const modifyText = (e) => setNewEntry({...newEntry, [e.target.name]: e.target.value})
+
+  const modifyImage = (readerResult) => setNewEntry({ ...newEntry, image:readerResult })
+  const eraseImage = ()=> setNewEntry({...newEntry, image:''})
+  const confirm = () =>{ setNewEntry(()=>initial); setter({type:'add entry', field:field, value:newEntry}) } 
+
+
+  const entryPurge = () => setter({type:'delete all entries', field: field})
+  const entryDelete = (e) => setter({type:'delete entry', field:field, value:e.target.dataset.index})
+  const entryEdit = (e) => setter({type:'update entry', field:field, value:e.target.value, at:e.target.dataset.index, part:e.target.name})
+
+  return {newEntry, modifyText, modifyImage, eraseImage, entryPurge, entryDelete, entryEdit, confirm}
+
+
+
+}
