@@ -10,14 +10,14 @@ export default function InputImage({ index, name, onChange, deleter }){
     if (file) {
       const reader = new FileReader();
       reader.readAsDataURL(file)
-      reader.onloadend = () => onChange(reader.result, index, name)
+      reader.onloadend = () => onChange(reader.result, name, index)
       console.log(file, file.name)
     }
   }
 
   const handleImageDelete = () => { 
     //hasIndex? deleter(index) : deleter()
-    deleter(index, name)
+    deleter(name, index)
     ref.current.value='' 
   }
 

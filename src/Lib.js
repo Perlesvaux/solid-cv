@@ -27,6 +27,7 @@ function reducer(state, action) {
   const {type, field, at, part, value} = action
   switch (type){
 
+
     // name, phone, email, profile
     case "update property":
       return {...state, [field]:value}
@@ -53,32 +54,7 @@ function reducer(state, action) {
     }
 
 
-    //case "add link":
-    //  return {...state, links:[...state.links, value] }
-    //
-    //case "delete all links":
-    //  return {...state, links:[] }
-    //
-    //case "delete link":
-    //  return {...state, links:[...state.links.filter((item, index) => index!==value ) ]}
-    //
-    //case "update links":
-    //{
-    //  const links = [...state.links]
-    //  links[at][fieldname] = value
-    //  return {...state, links }
-    //}
-
-
-    //case "updating":
-    //  return {...state, [action.field]:{...state[action.field], value:action.value} }
-    //
-    //case "delete":
-    //  return {...state, [action.field]:{...state[action.field], value:""}}
-    //
-    //case "clone":
-    //  return action.dump
-
+    // Nukes entire progress
     case "initialState":
       return blueprint;
 
@@ -87,128 +63,11 @@ function reducer(state, action) {
   }
 }
 
-//function reducer(state, action) {
-//  const {type, at, fieldname, value} = action
-//  switch (type){
-//
-//    case "update profile":
-//      return {...state, profile:value}
-//
-//    case "delete profile":
-//      return {...state, profile:''}
-//
-//
-//    case "update name":
-//      return {...state, name:value}
-//
-//    case "delete name":
-//      return {...state, name:''}
-//
-//
-//    case "update email":
-//      return {...state, email:value}
-//
-//    case "delete email":
-//      return {...state, email:''}
-//
-//    case "update phone":
-//      return {...state, phone:value}
-//
-//    case "delete phone":
-//      return {...state, phone:''}
-//
-//
-//    case "add skill":
-//      return {...state, skills:[...state.skills, value] }
-//
-//    case "delete all skills":
-//      return {...state, skills:[] }
-//
-//    case "delete skill":
-//      return {...state, skills:[...state.skills.filter((item, index) => index!==value ) ]}
-//
-//    case "update skill":
-//    {
-//      const skills = [...state.skills]
-//      skills[at][fieldname] = value
-//      return {...state, skills }
-//    }
-//
-//
-//    case "add experience":
-//      return {...state, experience:[...state.experience, value] }
-//
-//    case "delete all experience":
-//      return {...state, experience:[] }
-//
-//    case "delete experience":
-//      return {...state, experience:[...state.experience.filter((item, index) => index!==value ) ]}
-//
-//    case "update experience":
-//    {
-//      const experience = [...state.experience]
-//      experience[at][fieldname] = value
-//      return {...state, experience }
-//    }
-//
-//
-//
-//    case "add education":
-//      return {...state, education:[...state.education, value] }
-//
-//    case "delete all education":
-//      return {...state, education:[] }
-//
-//    case "delete education":
-//      return {...state, education:[...state.education.filter((item, index) => index!==value ) ]}
-//
-//    case "update education":
-//    {
-//      const education = [...state.education]
-//      education[at][fieldname] = value
-//      return {...state, education }
-//    }
-//
-//
-//    case "add link":
-//      return {...state, links:[...state.links, value] }
-//
-//    case "delete all links":
-//      return {...state, links:[] }
-//
-//    case "delete link":
-//      return {...state, links:[...state.links.filter((item, index) => index!==value ) ]}
-//
-//    case "update links":
-//    {
-//      const links = [...state.links]
-//      links[at][fieldname] = value
-//      return {...state, links }
-//    }
-//
-//
-//    //case "updating":
-//    //  return {...state, [action.field]:{...state[action.field], value:action.value} }
-//    //
-//    //case "delete":
-//    //  return {...state, [action.field]:{...state[action.field], value:""}}
-//    //
-//    //case "clone":
-//    //  return action.dump
-//
-//    case "initialState":
-//      return blueprint;
-//
-//    default:
-//      throw new Error(`Unknown action: ${type}`);
-//  }
-//}
 
 export function useResume(){
   const [state, dispatch] = useReducer(reducer, blueprint)
   return [state, dispatch, blueprint]
 }
-
 
 
 export function imageToDataURL(event, func){
@@ -222,9 +81,6 @@ export function imageToDataURL(event, func){
 }
 
 
-
-
-
 export const downloadJSON = (target) => {
   const blob = new Blob([JSON.stringify(target, null, 2)], { type: 'application/json' });
   const link = document.createElement('a');
@@ -234,25 +90,11 @@ export const downloadJSON = (target) => {
 };
 
 
-
-  //function handleImageChange(event){
-  //  const file = event.target.files[0]
-  //  if (file) {
-  //    const reader = new FileReader();
-  //    reader.readAsDataURL(file)
-  //    reader.onloadend = ()=> setNewEntry({ ...newEntry, image:reader.result }) 
-  //    console.log(file, file.name)
-  //  }
-  //}
-
-
 export function useHandler (setter, field, initial){
-  //const initial = {institution:'', title:'', url:'', image:''}
   const [newEntry, setNewEntry] = useState(initial)
   const modifyText = (e) => setNewEntry({...newEntry, [e.target.name]: e.target.value})
-
-  const modifyImage = (readerResult) => setNewEntry({ ...newEntry, image:readerResult })
-  const eraseImage = () => setNewEntry({...newEntry, image:''})
+  const modifyImage = (readerResult, part) => setNewEntry({ ...newEntry, [part]:readerResult })
+  const eraseImage = (part) => setNewEntry({...newEntry, [part]:''})
   const confirm = () =>{ setNewEntry(()=>initial); setter({type:'add entry', field:field, value:newEntry}) } 
 
 
@@ -260,8 +102,8 @@ export function useHandler (setter, field, initial){
   const entryDelete = (e) => {setter({type:'delete entry', field:field, value:Number(e.target.dataset.index)});console.log(field, e.target.dataset.index)}
   const entryEdit = (e) => setter({type:'update entry', field:field, value:e.target.value, at:Number(e.target.dataset.index), part:e.target.name})
 
-  const entryImageDelete = (indx, part) => setter({ type:'update entry', field:field, value:'', at:indx, part:part })
-  const entryImageEdit = (readerResult, index, part) => setter({type:'update entry', field:field, value:readerResult, at:index, part:part})
+  const entryImageDelete = (part, indx) => setter({ type:'update entry', field:field, value:'', at:indx, part:part })
+  const entryImageEdit = (readerResult, part, index) => setter({type:'update entry', field:field, value:readerResult, at:index, part:part})
 
   const singlePropertyUpdate = (e) => setter({type:'update property', field:field, value:e.target.value}) 
   const singlePropertyDelete = () => setter({type:'delete property', field:field, value:''})
