@@ -1,27 +1,27 @@
 import PropTypes from 'prop-types'
 import { useRef } from 'react'
 
-export default function ImageInput({ name, changer, index }){
+export default function EntryImageInput({ name, onChange, index, field }){
 
   const ref = useRef(null)
 
-  const imageToDataURL = (event, index) => {
+  const imageToDataURL = (event) => {
     const file = event.target.files[0]
     if (file) {
       const reader = new FileReader();
       reader.readAsDataURL(file)
-      reader.onloadend = () => changer({type:'update entry', field:'education', value:reader.result, at:index, part:name}) 
+      reader.onloadend = () => onChange({type:'update entry', field:field, value:reader.result, at:index, part:name}) 
       console.log(file, file.name)
     }
   }
 
   const deleter = () => { 
-    changer({ type:'update entry', field:'education', value:'', at:index, part:name })
+    onChange({ type:'update entry', field:'education', value:'', at:index, part:name })
     ref.current.value='' 
   }
 
   const handleImageChange = (e) => {
-    imageToDataURL(e, index)
+    imageToDataURL(e)
   }
 
   return(<>
@@ -33,8 +33,9 @@ export default function ImageInput({ name, changer, index }){
 }
 
 
-ImageInput.propTypes = {
+EntryImageInput.propTypes = {
   name:PropTypes.string.isRequired,
-  changer:PropTypes.func.isRequired,
+  onChange:PropTypes.func.isRequired,
   index:PropTypes.number.isRequired,
+  field:PropTypes.string.isRequired,
 }
