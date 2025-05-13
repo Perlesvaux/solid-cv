@@ -43,7 +43,7 @@ function reducer(state, action) {
       return {...state, [field]:[] }
 
     case "delete entry":
-      return {...state, [field]:[...state[field].filter((item, at) => at!==value ) ]}
+      return {...state, [field]:[...state[field].filter((item, indx) => indx!==value ) ]}
 
     case "update entry":
     {
@@ -257,8 +257,8 @@ export function useHandler (setter, field, initial){
 
 
   const entryPurge = () => setter({type:'delete all entries', field: field})
-  const entryDelete = (e) => setter({type:'delete entry', field:field, value:e.target.dataset.index})
-  const entryEdit = (e) => setter({type:'update entry', field:field, value:e.target.value, at:e.target.dataset.index, part:e.target.name})
+  const entryDelete = (e) => {setter({type:'delete entry', field:field, value:Number(e.target.dataset.index)});console.log(field, e.target.dataset.index)}
+  const entryEdit = (e) => setter({type:'update entry', field:field, value:e.target.value, at:Number(e.target.dataset.index), part:e.target.name})
 
   return {newEntry, modifyText, modifyImage, eraseImage, entryPurge, entryDelete, entryEdit, confirm}
 

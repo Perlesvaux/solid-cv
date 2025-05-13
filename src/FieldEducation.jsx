@@ -36,11 +36,7 @@ export default function FieldEducation({ getter, setter }){
         <input type="text" name="url" value={newEntry.url} onChange={modifyText} />
       </label>
 
-      <EntryImageInput 
-        name="image"
-        onChange={modifyImage}
-        deleter={eraseImage}
-      />
+      <EntryImageInput name="image" onChange={modifyImage} deleter={eraseImage} />
 
       <button onClick={confirm}> Ok </button>
       <button onClick={entryPurge}> clear </button>
@@ -48,16 +44,16 @@ export default function FieldEducation({ getter, setter }){
       {
         getter.education.map(({institution, title, url, image}, indx) => 
           <div key={indx}>
-            <input data-indx={indx} type='text' name='institution' value={institution} onChange={(e)=>edit(e.target.dataset.indx, e.target.name, e.target.value)} />
-            <input type='text' name='title' value={title}       onChange={(e)=>edit(indx, e.target.name, e.target.value)} />
-            <input type='text' name='url' value={url}         onChange={(e)=>edit(indx, e.target.name, e.target.value)} />
+            <input data-index={indx} type='text' name='institution' value={institution} onChange={entryEdit} />
+            <input data-index={indx} type='text' name='title' value={title} onChange={entryEdit} />
+            <input data-index={indx} type='text' name='url' value={url} onChange={entryEdit} />
             <EntryImageInput 
               name='image'
               onChange={(readerResult) => setter({type:'update entry', field:'education', value:readerResult, at:indx, part:'image'})} 
               deleter={() => setter({ type:'update entry', field:'education', value:'', at:indx, part:'image' })}
             /> 
             {image && <img src={image} />}
-            <button onClick={()=>deleter(indx)}>x</button>
+            <button data-index={indx} onClick={entryDelete}>x</button>
 
           </div>)
       }
