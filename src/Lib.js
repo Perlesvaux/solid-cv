@@ -261,8 +261,9 @@ export function useHandler (setter, field, initial){
   const entryEdit = (e) => setter({type:'update entry', field:field, value:e.target.value, at:Number(e.target.dataset.index), part:e.target.name})
 
   const entryImageDelete = (indx) => setter({ type:'update entry', field:'education', value:'', at:indx, part:'image' })
+  const entryImageEdit = (readerResult, index) => setter({type:'update entry', field:'education', value:readerResult, at:index, part:'image'})
 
-  return {newEntry, modifyText, modifyImage, eraseImage, entryPurge, entryDelete, entryEdit, confirm, entryImageDelete}
+  return {newEntry, modifyText, modifyImage, eraseImage, entryPurge, entryDelete, entryEdit, confirm, entryImageDelete, entryImageEdit}
 
 
 

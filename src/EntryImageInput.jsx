@@ -2,21 +2,21 @@ import PropTypes from 'prop-types'
 import { useRef } from 'react'
 
 export default function EntryImageInput({ index, name, onChange, deleter }){
-
   const ref = useRef(null)
+  const hasIndex = index !== null && index !== undefined
 
   const imageToDataURL = (event) => {
     const file = event.target.files[0]
     if (file) {
       const reader = new FileReader();
       reader.readAsDataURL(file)
-      reader.onloadend = () => onChange(reader.result, index) 
+      reader.onloadend = () => hasIndex? onChange(reader.result, index) : onChange(reader.result)
       console.log(file, file.name)
     }
   }
 
   const handleImageDelete = () => { 
-    deleter(index)
+    hasIndex? deleter(index) : deleter()
     ref.current.value='' 
   }
 

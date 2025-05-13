@@ -5,7 +5,16 @@ import EntryImageInput from './EntryImageInput.jsx'
 export default function FieldEducation({ getter, setter }){
   const initial = {institution:'', title:'', url:'', image:''}
 
-  const {newEntry, modifyText, modifyImage, eraseImage, entryPurge, entryDelete, entryEdit, confirm, entryImageDelete} = useHandler(setter, 'education', initial)
+  const {newEntry, 
+    modifyText, 
+    modifyImage, 
+    eraseImage, 
+    entryPurge, 
+    entryDelete, 
+    entryEdit, 
+    confirm, 
+    entryImageDelete, 
+    entryImageEdit} = useHandler(setter, 'education', initial)
 
   return (
     <>
@@ -35,7 +44,7 @@ export default function FieldEducation({ getter, setter }){
             <EntryImageInput 
               index={indx}
               name='image'
-              onChange={(readerResult, index) => setter({type:'update entry', field:'education', value:readerResult, at:index, part:'image'})} 
+              onChange={ entryImageEdit } 
               deleter={ entryImageDelete }
             /> 
             {image && <img src={image} />}
