@@ -1,32 +1,31 @@
 import PropTypes from 'prop-types';
-import {useState} from 'react'
+import {useHandler} from './Lib.js'
+import Input from './Input.jsx'
 export default function FieldSkills({ getter, setter }){
   const initial = {icon:"", skill:""}
-  const [newEntry, setNewEntry] = useState(initial)
-  const handleNewEntry = (e) => setNewEntry({...newEntry, [e.target.name]: e.target.value})
-  const wipeOut = () => setter({type:"delete all skills"})
-  const updater = () => { setNewEntry(()=>initial); setter({type:"add skill", value:newEntry}) }
-  const deleter = (index) => setter({type:"delete skill", value:index})
-  const edit = (e, index) => setter({type:"update skill", value:e.target.value, at:index, fieldname:e.target.name})
+  const {newEntry, 
+    modifyText, 
+    entryPurge, 
+    entryDelete, 
+    entryEdit, 
+    confirm} = useHandler(setter, 'skills', initial)
 
-  return (
-    <label >
+  return (<>
       Skills
-      <input type="text" name="icon"  value={newEntry.icon} onChange={handleNewEntry} />
-      <input type="text" name="skill" value={newEntry.skill} onChange={handleNewEntry} />
-      <button onClick={updater}> Ok </button>
-      <button onClick={wipeOut}> clear </button>
+      <Input type="text" name="icon"  value={newEntry.icon} onChange={modifyText} />
+      <Input type="text" name="skill" value={newEntry.skill} onChange={modifyText} />
+      <button onClick={confirm}> Ok </button>
+      <button onClick={entryPurge}> clear </button>
 
       {
         getter.skills.map(({icon, skill}, indx) => 
           <div key={indx}> 
-            <input type="text" name="icon" value={icon} onChange={(e)=>edit(e, indx)} /> 
-            <input type="text" name="skill" value={skill} onChange={(e)=>edit(e, indx)} /> 
-            <button onClick={()=>deleter(indx)}>x</button>
+            <Input index={indx} type="text" name="icon" value={icon} onChange={entryEdit} /> 
+            <Input index={indx} type="text" name="skill" value={skill} onChange={entryEdit} /> 
+            <button data-index={indx} onClick={entryDelete}>x</button>
           </div>)
       }
-    </label>
-  )
+    </>)
 }
 
 

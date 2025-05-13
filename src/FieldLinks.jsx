@@ -1,40 +1,34 @@
 import PropTypes from 'prop-types';
-import {useState} from 'react'
+import {useHandler} from './Lib.js'
+import Input from './Input.jsx'
 
 export default function FieldLinks({ getter, setter }){
   const initial = {site:"", url:""}
-  const [newEntry, setNewEntry] = useState(initial)
-  const handleNewEntry = (e) => setNewEntry({...newEntry, [e.target.name]: e.target.value})
-  const wipeOut = () => setter({type:"delete all links"})
-  const updater = () => { setNewEntry(()=>initial); setter({type:"add link", value:newEntry}) }
-  const deleter = (index) => setter({type:"delete link", value:index})
-  const edit = (e, index) => setter({type:"update links", value:e.target.value, at:index, fieldname:e.target.name})
+  const {newEntry, 
+    modifyText, 
+    entryPurge, 
+    entryDelete, 
+    entryEdit, 
+    confirm} = useHandler(setter, 'links', initial)
 
   return (
     <>
-      <label>Site
-        <input type="text" name="site" value={newEntry.site} onChange={handleNewEntry} />
-      </label>
-
-      <label>URL
-        <input type="url" name="url" value={newEntry.url} onChange={handleNewEntry} />
-      </label>
-
-      <button onClick={updater}> Ok </button>
-      <button onClick={wipeOut}> clear </button>
+      <Input type="text" name="site" value={newEntry.site} onChange={modifyText} />
+      <Input type="url" name="url" value={newEntry.url} onChange={modifyText} />
+      <button onClick={confirm}> Ok </button>
+      <button onClick={entryPurge}> clear </button>
 
       {
         getter.links.map(({site, url}, indx) => 
           <div key={indx}>
-            <input type="text" name="site" value={site} onChange={(e)=>edit(e, indx) } />
-            <input type="text" name="url" value={url}  onChange={(e)=>edit(e, indx) } />
-            <button onClick={()=>deleter(indx)}>x</button>
+            <Input index={indx} type="text" name="site" value={site} onChange={entryEdit} />
+            <Input index={indx} type="text" name="url" value={url}  onChange={entryEdit} />
+            <button data-index={indx} onClick={entryDelete}>x</button>
           </div>)
       }
     </>
   )
 }
-
 
 
 FieldLinks.propTypes = {

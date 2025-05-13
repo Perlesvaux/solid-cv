@@ -1,43 +1,33 @@
 import PropTypes from 'prop-types';
-import {useState} from 'react'
+import {useHandler} from './Lib.js'
+import Input from './Input.jsx'
 export default function FieldExperience({ getter, setter }){
   const initial = {where:"", when:"", what:"", desc:""}
-  const [newEntry, setNewEntry] = useState(initial)
-  const handleNewEntry = (e) => setNewEntry({...newEntry, [e.target.name]: e.target.value})
-  const wipeOut = () => setter({type:"delete all experience"})
-  const updater = () => { setNewEntry(()=>initial); setter({type:"add experience", value:newEntry}) }
-  const deleter = (index) => setter({type:"delete experience", value:index})
-  const edit = (e, index) => setter({type:"update experience", value:e.target.value, at:index, fieldname:e.target.name})
+  const {newEntry, 
+    modifyText, 
+    entryPurge, 
+    entryDelete, 
+    entryEdit, 
+    confirm} = useHandler(setter, 'experience', initial)
 
   return (
     <>
-      <label>When
-        <input type="text" name="when" value={newEntry.when} onChange={handleNewEntry} />
-      </label>
+      <Input onChange={modifyText} type="text" name="when"  value={newEntry.when} />
+      <Input onChange={modifyText} type="text" name="where" value={newEntry.where} />
+      <Input onChange={modifyText} type="text" name="what"  value={newEntry.what} />
+      <Input onChange={modifyText} type="text" name="desc"  value={newEntry.desc} />
 
-      <label>Where
-        <input type="text" name="where" value={newEntry.where} onChange={handleNewEntry} />
-      </label>
-
-      <label>What
-        <input type="text" name="what" value={newEntry.what} onChange={handleNewEntry} />
-      </label>
-
-      <label>description
-        <input type="text" name="desc" value={newEntry.desc} onChange={handleNewEntry} />
-      </label>
-
-      <button onClick={updater}> Ok </button>
-      <button onClick={wipeOut}> clear </button>
+      <button onClick={confirm}> Ok </button>
+      <button onClick={entryPurge}> clear </button>
 
       {
         getter.experience.map(({when, where, what, desc}, indx) => 
           <div key={indx}>
-            <input name="when"  type="text" value={when}  onChange={(e)=>edit(e, indx)} /> 
-            <input name="where" type="text" value={where} onChange={(e)=>edit(e, indx)} /> 
-            <input name="what"  type="text" value={what}  onChange={(e)=>edit(e, indx)} /> 
-            <input name="desc"  type="text" value={desc}  onChange={(e)=>edit(e, indx)} /> 
-            <button onClick={()=>deleter(indx)}>x</button>
+            <Input index={indx} name="when"  type="text" value={when}  onChange={entryEdit} /> 
+            <Input index={indx} name="where" type="text" value={where} onChange={entryEdit} /> 
+            <Input index={indx} name="what"  type="text" value={what}  onChange={entryEdit} /> 
+            <Input index={indx} name="desc"  type="text" value={desc}  onChange={entryEdit} /> 
+            <button data-index={indx} onClick={entryDelete}>x</button>
           </div>)
       }
     </>
