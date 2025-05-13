@@ -252,7 +252,7 @@ export function useHandler (setter, field, initial){
   const modifyText = (e) => setNewEntry({...newEntry, [e.target.name]: e.target.value})
 
   const modifyImage = (readerResult) => setNewEntry({ ...newEntry, image:readerResult })
-  const eraseImage = ()=> setNewEntry({...newEntry, image:''})
+  const eraseImage = () => setNewEntry({...newEntry, image:''})
   const confirm = () =>{ setNewEntry(()=>initial); setter({type:'add entry', field:field, value:newEntry}) } 
 
 
