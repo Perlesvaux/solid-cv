@@ -15,7 +15,8 @@ export default function FieldEducation({ getter, setter }){
     entryEdit, 
     confirm, 
     entryImageDelete, 
-    entryImageEdit} = useHandler(setter, 'education', initial)
+    entryImageEdit,
+  } = useHandler(setter, 'education', initial)
 
   return (
     <>

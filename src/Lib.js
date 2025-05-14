@@ -98,7 +98,7 @@ export function useHandler (setter, field, initial){
 
   // Enhanced local state setters (handle new entries in: education, skills, experience, links) extends useState
   const modifyText = (e) => setNewEntry({...newEntry, [e.target.name]: e.target.value})
-  const modifyImage = (readerResult, part) => setNewEntry({ ...newEntry, [part]:readerResult })
+  //const modifyImage = (readerResult, part) => setNewEntry({ ...newEntry, [part]:readerResult })
   const eraseImage = (part) => setNewEntry({...newEntry, [part]:''})
   const confirm = () =>{ setNewEntry(()=>initial); setter({type:'add entry', field:field, value:newEntry}) } 
 
@@ -108,8 +108,8 @@ export function useHandler (setter, field, initial){
   const entryDelete = (e) => {setter({type:'delete entry', field:field, value:Number(e.target.dataset.index)});console.log(field, e.target.dataset.index)}
   const entryEdit = (e) => setter({type:'update entry', field:field, value:e.target.value, at:Number(e.target.dataset.index), part:e.target.name})
 
-  const entryImageDelete = (part, indx) => setter({ type:'update entry', field:field, value:'', at:indx, part:part })
-  const entryImageEdit = (readerResult, part, index) => setter({type:'update entry', field:field, value:readerResult, at:index, part:part})
+  //const entryImageDelete = (part, indx) => setter({ type:'update entry', field:field, value:'', at:indx, part:part })
+  //const entryImageEdit = (readerResult, part, index) => setter({type:'update entry', field:field, value:readerResult, at:index, part:part})
 
 
   // Enhanced simple property shared state setters (manipulate new/existing value of: name, phone, email, profile)
@@ -131,8 +131,31 @@ export function useHandler (setter, field, initial){
   };
 
 
+  const entryImageEdit = (e) => {
+    const file = e.target.files[0]
+    if (file) {
+      const reader = new FileReader();
+      reader.readAsDataURL(file)
+      reader.onloadend = () => setter({
+        type:'update entry', field:field, value:reader.result, at:Number(e.target.dataset.index), part:e.target.dataset.part
+      });
+      console.log(file, file.name)
+    }
+  }
 
-  return {newEntry, modifyText, modifyImage, eraseImage, entryPurge, entryDelete, entryEdit, confirm, entryImageDelete, entryImageEdit, singleUpdate, singleDelete, clone, dump}
+  const entryImageDelete = (e) => setter({ type:'update entry', field:field, value:'', at:Number(e.target.dataset.index), part:e.target.dataset.part })
+
+  const modifyImage = (e) => {
+    const file = e.target.files[0]
+      if (file) {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onloadend = ()=> setNewEntry({ ...newEntry, [e.target.dataset.part]:reader.result });
+    }
+  }
+
+
+  return {newEntry, modifyText, modifyImage, eraseImage, entryPurge, entryDelete, entryEdit, confirm, entryImageDelete, entryImageEdit, singleUpdate, singleDelete, clone, dump, imageToDataURL}
 
 
 

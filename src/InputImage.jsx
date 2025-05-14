@@ -5,26 +5,15 @@ export default function InputImage({ index, name, onChange, deleter }){
   const ref = useRef(null)
   //const hasIndex = index !== null && index !== undefined
 
-  const imageToDataURL = (event) => {
-    const file = event.target.files[0]
-    if (file) {
-      const reader = new FileReader();
-      reader.readAsDataURL(file)
-      reader.onloadend = () => onChange(reader.result, name, index)
-      console.log(file, file.name)
-    }
-  }
-
-  const handleImageDelete = () => { 
-    //hasIndex? deleter(index) : deleter()
-    deleter(name, index)
+  const handleImageDelete = (event) => { 
+    deleter(event)
     ref.current.value='' 
   }
 
   return(<>
     <label> {name}
-      <input  name={name} type='file' accept='image/*' ref={ref} onChange={imageToDataURL}/>
-      <button onClick={ handleImageDelete }>unload</button>
+      <input data-index={index} data-part={name}  name={name} type='file' accept='image/*' ref={ref} onChange={onChange}/>
+      <button data-index={index} data-part={name} onClick={ handleImageDelete }>unload</button>
     </label>
   </>)
 }
