@@ -123,3 +123,18 @@ export function useHandler (setter, field, initial){
 
 
 }
+
+
+
+
+export const isValidJSON = (json) => [
+  'name',
+  'phone',
+  'email',
+  'links',
+  'experience',
+  'skills',
+  'education',
+  'profile'
+].every((property)=>property in json)
+
