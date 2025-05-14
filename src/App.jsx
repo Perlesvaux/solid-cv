@@ -16,6 +16,7 @@ import FieldExperience from './FieldExperience.jsx'
 import FieldEducation from './FieldEducation.jsx'
 import FieldLinks from './FieldLinks.jsx'
 import Dump from './Dump.jsx'
+import DumpLoader from './DumpLoader.jsx'
 
 export default function App() {
   //const [count, setCount] = useState(0)
@@ -42,8 +43,12 @@ export default function App() {
       <h2>Profile</h2>
       <FieldProfile getter={state} setter={action} />
 
+      <h3>Output</h3>
       <button onClick={print}> Sneak peek </button>
       <Dump getter={state} />
+
+      <h3>Input</h3>
+      <DumpLoader getter={state} setter={action}/>
     </>
   )
 }

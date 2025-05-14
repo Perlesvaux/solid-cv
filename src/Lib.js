@@ -22,7 +22,7 @@ const blueprint = {
 
 
 function reducer(state, action) {
-  const {type, field, at, part, value} = action
+  const {type, field, at, part, value, dump} = action
   switch (type){
 
 
@@ -55,6 +55,11 @@ function reducer(state, action) {
     // Nukes entire progress
     case "initialState":
       return blueprint;
+
+
+    // Dump 
+    case "clone":
+    return dump;
 
     default:
       throw new Error(`Unknown action: ${type}`);
@@ -111,7 +116,9 @@ export function useHandler (setter, field, initial){
   const singleUpdate = (e) => setter({type:'update property', field:field, value:e.target.value}) 
   const singleDelete = () => setter({type:'delete property', field:field, value:''})
 
-  return {newEntry, modifyText, modifyImage, eraseImage, entryPurge, entryDelete, entryEdit, confirm, entryImageDelete, entryImageEdit, singleUpdate, singleDelete}
+  const clone = (dump) => setter({type:'clone', dump:dump})
+
+  return {newEntry, modifyText, modifyImage, eraseImage, entryPurge, entryDelete, entryEdit, confirm, entryImageDelete, entryImageEdit, singleUpdate, singleDelete, clone}
 
 
 
