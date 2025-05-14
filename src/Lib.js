@@ -96,27 +96,21 @@ export const downloadJSON = (target) => {
 export function useHandler (setter, field, initial){
   const [newEntry, setNewEntry] = useState(initial)
 
+  // Enhanced shared state setters (manipulate new/existing value of: name, phone, email, profile)
+  const singleUpdate = (e) => setter({type:'update property', field:field, value:e.target.value}) 
+  const singleDelete = () => setter({type:'delete property', field:field, value:''})
+
   // Enhanced local state setters (handle new entries in: education, skills, experience, links) extends useState
   const modifyText = (e) => setNewEntry({...newEntry, [e.target.name]: e.target.value})
-  //const modifyImage = (readerResult, part) => setNewEntry({ ...newEntry, [part]:readerResult })
-  const eraseImage = (part) => setNewEntry({...newEntry, [part]:''})
   const confirm = () =>{ setNewEntry(()=>initial); setter({type:'add entry', field:field, value:newEntry}) } 
-
 
   // Enhanced shared state setters (manipulate existing entries in: education, skills, experience, links) extends useReducer
   const entryPurge = () => setter({type:'delete all entries', field: field})
   const entryDelete = (e) => {setter({type:'delete entry', field:field, value:Number(e.target.dataset.index)});console.log(field, e.target.dataset.index)}
   const entryEdit = (e) => setter({type:'update entry', field:field, value:e.target.value, at:Number(e.target.dataset.index), part:e.target.name})
 
-  //const entryImageDelete = (part, indx) => setter({ type:'update entry', field:field, value:'', at:indx, part:part })
-  //const entryImageEdit = (readerResult, part, index) => setter({type:'update entry', field:field, value:readerResult, at:index, part:part})
 
-
-  // Enhanced simple property shared state setters (manipulate new/existing value of: name, phone, email, profile)
-  const singleUpdate = (e) => setter({type:'update property', field:field, value:e.target.value}) 
-  const singleDelete = () => setter({type:'delete property', field:field, value:''})
-
-  const clone = (dump) => setter({type:'clone', dump:dump})
+  // JSON contents overwrite shared state
   const dump = (e) => {
     try {
       const json = JSON.parse(e.target.result);
@@ -130,6 +124,8 @@ export function useHandler (setter, field, initial){
     }
   };
 
+  // Shared state setter to handle existing image entries.
+  const entryImageDelete = (e) => setter({ type:'update entry', field:field, value:'', at:Number(e.target.dataset.index), part:e.target.dataset.part })
 
   const entryImageEdit = (e) => {
     const file = e.target.files[0]
@@ -137,25 +133,26 @@ export function useHandler (setter, field, initial){
       const reader = new FileReader();
       reader.readAsDataURL(file)
       reader.onloadend = () => setter({
-        type:'update entry', field:field, value:reader.result, at:Number(e.target.dataset.index), part:e.target.dataset.part
+        type:'update entry', field:field, value:reader.result, at:Number(e.target.dataset.index), part:e.target.name
       });
       console.log(file, file.name)
     }
   }
 
-  const entryImageDelete = (e) => setter({ type:'update entry', field:field, value:'', at:Number(e.target.dataset.index), part:e.target.dataset.part })
+  // Local state setter to handle images.
+  const eraseImage = (e) => setNewEntry({...newEntry, [e.target.dataset.part]:''});
 
   const modifyImage = (e) => {
     const file = e.target.files[0]
       if (file) {
       const reader = new FileReader();
       reader.readAsDataURL(file);
-      reader.onloadend = ()=> setNewEntry({ ...newEntry, [e.target.dataset.part]:reader.result });
+      reader.onloadend = ()=> setNewEntry({ ...newEntry, [e.target.name]:reader.result });
     }
   }
 
 
-  return {newEntry, modifyText, modifyImage, eraseImage, entryPurge, entryDelete, entryEdit, confirm, entryImageDelete, entryImageEdit, singleUpdate, singleDelete, clone, dump, imageToDataURL}
+  return {newEntry, modifyText, modifyImage, eraseImage, entryPurge, entryDelete, entryEdit, confirm, entryImageDelete, entryImageEdit, singleUpdate, singleDelete, dump}
 
 
 

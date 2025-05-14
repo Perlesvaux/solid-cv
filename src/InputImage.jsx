@@ -12,7 +12,7 @@ export default function InputImage({ index, name, onChange, deleter }){
 
   return(<>
     <label> {name}
-      <input data-index={index} data-part={name}  name={name} type='file' accept='image/*' ref={ref} onChange={onChange}/>
+      <input data-index={index}  name={name} type='file' accept='image/*' ref={ref} onChange={onChange}/>
       <button data-index={index} data-part={name} onClick={ handleImageDelete }>unload</button>
     </label>
   </>)
