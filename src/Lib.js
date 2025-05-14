@@ -117,8 +117,22 @@ export function useHandler (setter, field, initial){
   const singleDelete = () => setter({type:'delete property', field:field, value:''})
 
   const clone = (dump) => setter({type:'clone', dump:dump})
+  const dump = (e) => {
+    try {
+      const json = JSON.parse(e.target.result);
+      if (isValidJSON(json)) {
+        setter({type:'clone', dump:json});
+      } else {
+        alert('Invalid JSON format!');
+      }
+    } catch (error) {
+      alert(`Error reading JSON file! ${error}`);
+    }
+  };
 
-  return {newEntry, modifyText, modifyImage, eraseImage, entryPurge, entryDelete, entryEdit, confirm, entryImageDelete, entryImageEdit, singleUpdate, singleDelete, clone}
+
+
+  return {newEntry, modifyText, modifyImage, eraseImage, entryPurge, entryDelete, entryEdit, confirm, entryImageDelete, entryImageEdit, singleUpdate, singleDelete, clone, dump}
 
 
 
