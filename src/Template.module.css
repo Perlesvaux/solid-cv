@@ -1,0 +1,9 @@
+.template {
+  /*background-color: green;*/
+}
+
+@media print {
+  .templateSelection{
+    display: none;
+  }
+}
