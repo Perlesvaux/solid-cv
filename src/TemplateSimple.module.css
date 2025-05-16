@@ -1,5 +1,5 @@
 .template {
-  --space-before: 1em;
+  --space-before: 0.8em;
   --space-after: 0.1em;
 
   /* Modern font stack with fallbacks */
@@ -22,8 +22,6 @@
   --color-primary: #2b6cb0; /* Professional blue */
   --color-border: #e2e8f0;
 
-
-
   /* Global */
   font-family: var(--font-primary);
   font-size: var(--text-base-size);
@@ -31,40 +29,43 @@
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 
+  /* Layout */
+
+  display: flex;
+  flex-direction: column;
 }
 
+
+/* clean-up margins and padding of ALL elements */
+.template, .template * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Important for consistent sizing */
+}
+
+
 .template > h1 {
-  /*line-height: var(--line-height-normal);*/
-  color:var(--color-text);
-  /*background-color: red;*/
-  margin-bottom: var(--space-after);
-  /*font-size:2em;*/
+  color: var(--color-text);
+  font-size: 2em; 
 }
 
 .template > h3 {
-  color:var(--color-primary);
-  margin-bottom: var(--space-after);
-  padding-top: var(--space-after);
-  /*font-weight: 700;*/
+  color: var(--color-primary);
+  margin-top: var(--space-before);
 }
 
 .mapping {
-  text-align: left;
   display: grid;
   grid-template-columns: 30% auto;
-  /*row-gap: 100px;*/
   background-color: antiquewhite;
-  /*padding: 10px;*/
-  /*padding-bottom: 0px;*/
 }
 .mapping > article {
   background-color: red;
   height:fit-content;
-  /*padding:0; margin:0;*/
 }
 .mapping > article > p{
   height:fit-content;
   background-color: pink;
-  padding:0; margin:0;
 }
+
 

@@ -5,8 +5,8 @@ export default function TemplateSimple({ getter }){
 
   return <section className={css.template}>
     <h1>{getter.name}</h1>
-    <h3>Contact</h3>
 
+    <h3>Contact</h3>
     <div className={css.mapping}>
       <article> <p>telephone </p></article>
       <article> <p>{getter.phone}</p> </article>
@@ -47,7 +47,7 @@ export default function TemplateSimple({ getter }){
     }
 
 
-    <h3>Education, Licences y Certificates</h3>
+    <h3>Education, Licences &amp; Certificates</h3>
     { 
   //const initial = {institution:'', title:'', url:'', image:''}
       getter.education.map(({institution, title, url, image}, indx) => <div key={indx} className={css.mapping}>
