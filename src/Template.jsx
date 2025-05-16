@@ -30,9 +30,7 @@ export default function Template ({getter}) {
     </section>
 
 
-    <section className={css.template}>
       {templateStyle()}
-    </section>
 
   </>
 }

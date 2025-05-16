@@ -19,6 +19,7 @@ import FieldLinks from './FieldLinks.jsx'
 import Dump from './Dump.jsx'
 import DumpLoader from './DumpLoader.jsx'
 
+//import './App.css'
 import css from './App.module.css'
 
 export default function App() {
@@ -55,8 +56,7 @@ export default function App() {
         <DumpLoader getter={state} setter={action}/>
       </section>
 
-
-        <Template getter={state} />
+      <Template getter={state} />
     </>
 
   )
