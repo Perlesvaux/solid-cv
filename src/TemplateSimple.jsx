@@ -31,8 +31,8 @@ export default function TemplateSimple({ getter }){
       getter.experience.map(({when, where, what, desc}, indx) => <div key={indx} className={css.mapping}>
         <article>
           <p>{when}</p> 
-          <p>{where}</p> 
-          <p>{what}</p> 
+          <p><strong>{where}</strong></p> 
+          <p><i>{what}</i></p> 
         </article>
         <article> <p>{desc}</p> </article>
       </div>)

@@ -1,6 +1,6 @@
 .template {
-  --space-before: 0.8em;
-  --space-after: 0.1em;
+  --space-before: 1em;
+  --space-after: 0.2em;
 
   /* Modern font stack with fallbacks */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 
@@ -24,15 +24,19 @@
 
   /* Global */
   font-family: var(--font-primary);
-  font-size: var(--text-base-size);
-  line-height: var(--line-height-normal);
+  font-size: 11pt;
+  line-height: 1.4;
+  /*font-size: var(--text-base-size);*/
+  /*line-height: var(--line-height-normal);*/
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  color:var(--color-text);
 
   /* Layout */
 
   display: flex;
   flex-direction: column;
+  /*width:90%;*/
 }
 
 
@@ -46,26 +50,32 @@
 
 .template > h1 {
   color: var(--color-text);
-  font-size: 2em; 
+  /*font-size: 2em; */
 }
 
 .template > h3 {
   color: var(--color-primary);
   margin-top: var(--space-before);
+  border-bottom: 0.13em solid var(--color-primary);
 }
 
 .mapping {
   display: grid;
   grid-template-columns: 30% auto;
-  background-color: antiquewhite;
+  /*background-color: antiquewhite;*/
 }
 .mapping > article {
-  background-color: red;
+  /*background-color: red;*/
   height:fit-content;
 }
 .mapping > article > p{
   height:fit-content;
-  background-color: pink;
+  /*background-color: pink;*/
 }
+
+/*.mapping:nth-child(odd){*/
+/*  background-color: pink;*/
+/*}*/
+
 
 
