@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
-import {useState} from 'react'
+//import {useState} from 'react'
+import {useState, useEffect, useRef} from 'react'
 
 import css from './InputDropdown.module.css'
 
@@ -9,6 +10,30 @@ export default function InputDropdown({ index, name, type, value, onChange, dele
 
   const [state, setState] = useState(()=> value ? value : down)
   const [isVisible, setIsVisible] = useState(false)
+  const ref = useRef(null)
+  
+
+  useEffect(() => {
+    const dispel_key = (e) => {
+      const keyPressed = e.key
+      if (keyPressed === 'Escape' && ref.current) setIsVisible(false)
+    }
+    const dispel_click = (e) => {
+      const clickedOutside = !(e.target === ref.current)
+      if(clickedOutside) setIsVisible(false)
+      //const areaClicked = e.target
+      //console.log(areaClicked)
+      //console.log(ref.current)
+    }
+
+    addEventListener('keydown', dispel_key)
+    addEventListener('click', dispel_click)
+
+    return () => {
+      removeEventListener('keydown', dispel_click)
+    }
+  }, [])
+  
 
   const selectIcon = (e) => {
     onChange(e)
@@ -20,7 +45,7 @@ export default function InputDropdown({ index, name, type, value, onChange, dele
 
   return <>
     { name }
-    <button onClick={toggle} className={css.toggle}> <img src={state} className={css.toggleImage}/> </button>
+    <button ref={ref} onClick={toggle} className={css.toggle}> <img src={state} className={css.toggleImage}/> </button>
     {
       options && isVisible &&
       <div className={css.options}>

@@ -2,7 +2,16 @@
   background-color: var(--blue2);
   border-top-left-radius: 9px;
   border-top-right-radius: 9px;
+  z-index: 1;
+  opacity: .5;
 }
+.toggle > img {
+  position: relative;
+  /*background-color: red;*/
+  z-index: -1;
+
+}
+
 
 .options {
   z-index: 9;
@@ -10,8 +19,8 @@
 }
 
 .options > button {
-  background-color: var(--blue1);
-  border: 2px solid var(--blue1);
+  background-color: var(--blue2);
+  border: 2px solid var(--blue2);
 }
 
 .options > button:hover {
