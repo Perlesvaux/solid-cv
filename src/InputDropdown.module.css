@@ -1,0 +1,19 @@
+.toggle {
+  background-color: var(--blue2);
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
+}
+
+.options {
+  z-index: 9;
+  position: absolute;
+}
+
+.options > button {
+  background-color: var(--blue1);
+  border: 2px solid var(--blue1);
+}
+
+.options > button:hover {
+  transform: scale(1.4);border-radius: 20px;
+}

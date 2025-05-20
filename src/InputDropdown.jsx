@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types';
 import {useState} from 'react'
 
-import right from './assets/right.svg'
+import css from './InputDropdown.module.css'
+
+import down from './assets/down.svg'
 
 export default function InputDropdown({ index, name, type, value, onChange, deleter, options }){
 
-  const [state, setState] = useState(()=> value ? value : right)
+  const [state, setState] = useState(()=> value ? value : down)
   const [isVisible, setIsVisible] = useState(false)
 
   const selectIcon = (e) => {
@@ -18,16 +20,17 @@ export default function InputDropdown({ index, name, type, value, onChange, dele
 
   return <>
     { name }
-    <button onClick={toggle} > <img src={state} /> </button>
-    { deleter && <button onClick={deleter}>X</button> }
+    <button onClick={toggle} className={css.toggle}> <img src={state} className={css.toggleImage}/> </button>
     {
       options && isVisible &&
-      <>
+      <div className={css.options}>
         {options.map(( {icon, tag}, indx ) => 
-            <button key={indx} data-index={index} data-value={icon} name={name} onClick={selectIcon} title={tag} > 
-              <img src={icon} alt={tag} /> 
-            </button>)}
-      </>
+          <button key={indx} data-index={index} data-value={icon} name={name} onClick={selectIcon} title={tag}> 
+            <img src={icon} alt={tag} /> 
+          </button>)}
+
+        { deleter && <button onClick={deleter}>X</button> }
+      </div>
     }
   </>
 }
