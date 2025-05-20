@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types';
 import {useState} from 'react'
 
+import right from './assets/right.svg'
+
 export default function InputDropdown({ index, name, type, value, onChange, deleter, options }){
 
-  const [state, setState] = useState(value)
+  const [state, setState] = useState(()=> value ? value : right)
   const [isVisible, setIsVisible] = useState(false)
 
   const selectIcon = (e) => {
@@ -22,7 +24,7 @@ export default function InputDropdown({ index, name, type, value, onChange, dele
       options && isVisible &&
       <>
         {options.map(( {icon, tag}, indx ) => 
-            <button key={indx} data-index={index} data-value={icon} name={name} onClick={selectIcon} > 
+            <button key={indx} data-index={index} data-value={icon} name={name} onClick={selectIcon} title={tag} > 
               <img src={icon} alt={tag} /> 
             </button>)}
       </>

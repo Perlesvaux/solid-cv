@@ -8,12 +8,12 @@ export default function TemplateSimple({ getter }){
 
     <h3>Contact</h3>
     <div className={css.mapping}>
-      <article> <p>telephone </p></article>
+      <article> <p>Telephone </p></article>
       <article> <p>{getter.phone}</p> </article>
     </div>
 
     <div className={css.mapping}>
-      <article> <p>email</p> </article>
+      <article> <p>e-mail</p> </article>
       <article> <p>{getter.email}</p> </article>
     </div>
 

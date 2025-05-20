@@ -182,11 +182,56 @@ export const isValidJSON = (json) => [
 import balance from './assets/balance.svg'
 import bank from './assets/bank.svg'
 import headset from './assets/headset.svg'
+import chef from './assets/chef.svg'
+import cafe from './assets/cafe.svg'
+import food from './assets/food.svg'
+import insurance from './assets/insurance.svg'
+import health from './assets/health.svg'
+import cloud from './assets/cloud.svg'
+import gavel from './assets/gavel.svg'
+import windowIcon from './assets/window.svg'
+import briefcase from './assets/briefcase.svg'
+import office from './assets/office.svg'
+import paperclip from './assets/paperclip.svg'
+import branch from './assets/branch.svg'
+import server from './assets/server.svg'
+import terminal from './assets/terminal.svg'
+import database from './assets/database.svg'
+import menu from './assets/menu.svg'
+import code from './assets/code.svg'
+import language from './assets/language.svg'
+import book from './assets/book.svg'
+import truck from './assets/truck.svg'
+import enginer from './assets/enginer.svg'
+import gears from './assets/gears.svg'
+
+
 export const skillOptions = [
   { icon: balance, tag: 'law' },
   { icon: bank, tag: 'academy' },
   { icon: headset, tag: 'headset'},
-
+  { icon: insurance, tag: 'insurance'},
+  { icon: cafe, tag: 'cafe'},
+  { icon: food, tag: 'food'},
+  { icon: health, tag: 'health'},
+  { icon: cloud, tag: 'cloud'},
+  { icon: gavel, tag: 'gavel'},
+  { icon: windowIcon, tag: 'window icon'},
+  { icon: chef, tag: 'chef'},
+  { icon: briefcase, tag: 'briefcase'},
+  { icon: office, tag: 'office'},
+  { icon: paperclip, tag: 'paperclip'},
+  { icon: branch, tag: 'branch'},
+  { icon: server, tag: 'server'},
+  { icon: terminal, tag: 'terminal'},
+  { icon: database, tag: 'database'},
+  { icon: menu, tag: 'menu'},
+  { icon: code, tag: 'code'},
+  { icon: language, tag: 'language'},
+  { icon: book, tag: 'book'},
+  { icon: gears, tag: 'gears'},
+  { icon: enginer, tag: 'enginer'},
+  { icon: truck, tag: 'truck'},
 ]
 
 
