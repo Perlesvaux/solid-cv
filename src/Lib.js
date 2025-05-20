@@ -234,5 +234,54 @@ export const skillOptions = [
   { icon: truck, tag: 'truck'},
 ]
 
+import twitter from './assets/twitter.svg'
+import threads from './assets/threads.svg'
+import facebook from './assets/facebook.svg'
+import instagram from './assets/instagram.svg'
+import behance from './assets/behance.svg'
+import pinterest from './assets/pinterest.svg'
+import github from './assets/github.svg'
+import linkedin from './assets/linkedin.svg'
+import share from './assets/share.svg'
+import chrome from './assets/chrome.svg'
+
+export const linkIcon = (name) => {
+
+  const link = name.toLowerCase().replaceAll(" ", "");
+
+  switch (link){
+
+    case "chromewebstore":
+      return chrome;
+
+    case "github":
+      return github;
+
+    case "pinterest":
+      return pinterest;
+
+    case "behance":
+      return behance;
+
+    case "instagram":
+      return instagram;
+
+    case "linkedin":
+      return linkedin;
+
+    case "twitter":
+      return twitter;
+
+    case "threads":
+      return threads;
+
+    case "facebook":
+      return facebook;
+
+    default:
+      return share;
+
+  }
 
 
+}

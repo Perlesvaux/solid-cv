@@ -2,6 +2,8 @@
   --space-before: 1em;
   --space-after: 0.3em;
 
+  --img-size: 24px;
+
   /* Modern font stack with fallbacks */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 
                  Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -76,10 +78,17 @@
   justify-content:initial; 
   gap: 8px;
   height:fit-content;
-
-
 }
+
+.mapping > article > p > a{
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 500;
+}
+
 .mapping > article > p > img {
+  height: var(--img-size);
+  width: var(--img-size);
   transform: scale(0.75);
 }
 
@@ -92,7 +101,9 @@
 }
 
 .skills > article > p > img {
-  transform: scale(0.75);
+  height: var(--img-size);
+  width: var(--img-size);
+  transform: scale(0.95);
 }
 
 /*.mapping > article > p > img {*/

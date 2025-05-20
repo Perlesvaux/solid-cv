@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import {linkIcon} from './Lib.js'
 import css from './TemplateSimple.module.css'
 
 import email from './assets/email.svg'
@@ -12,18 +13,18 @@ export default function TemplateSimple({ getter }){
     <h3>Contact</h3>
     <div className={css.mapping}>
       <article> <p> <img src={phone} /> Telephone </p></article>
-      <article> <p>{getter.phone}</p> </article>
+      <article> <p>  <a href={`tel:${getter.phone}`}>{getter.phone}</a> </p> </article>
     </div>
 
     <div className={css.mapping}>
       <article> <p> <img src={email} />e-mail</p> </article>
-      <article> <p>{getter.email}</p> </article>
+      <article> <p> <a href={`mailto:${getter.email}`}>{getter.email}</a></p> </article>
     </div>
 
     { 
       getter.links.map(({site, url}, indx) => <div key={indx} className={css.mapping}>
-        <article><p>{site}</p></article>
-        <article> <p>{url}</p> </article>
+        <article><p> <img src={linkIcon(site)} /> {site}</p></article>
+        <article> <p><a href={url}>{url}</a></p> </article>
       </div>)
     }
 
