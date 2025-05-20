@@ -41,7 +41,7 @@ export default function TemplateSimple({ getter }){
     <h3>Skills</h3>
     { 
       getter.skills.map(({icon, skill}, indx) => <div key={indx} className={css.mapping}>
-        <article><p>{icon}</p></article>
+        <article><img src={icon} /></article>
         <article> <p>{skill}</p> </article>
       </div>)
     }

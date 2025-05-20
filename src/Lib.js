@@ -172,3 +172,17 @@ export const isValidJSON = (json) => [
   'profile'
 ].every((property)=>property in json)
 
+
+
+import balance from './assets/balance.svg'
+import bank from './assets/bank.svg'
+import headset from './assets/headset.svg'
+export const skillOptions = [
+  { icon: balance, name: 'law' },
+  { icon: bank, name: 'academy' },
+  { icon: headset, name: 'headset'},
+
+]
+
+
+

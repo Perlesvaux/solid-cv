@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
-import {useHandler} from './Lib.js'
+import {useHandler, skillOptions} from './Lib.js'
 import Input from './Input.jsx'
+import InputDataList from './InputDataList.jsx'
 export default function FieldSkills({ getter, setter }){
   const initial = {icon:"", skill:""}
   const {newEntry, 
@@ -12,7 +13,7 @@ export default function FieldSkills({ getter, setter }){
 
   return (
     <>
-      <Input type="text" name="icon"  value={newEntry.icon} onChange={modifyText} />
+      <InputDataList type="text" name="icon"  value={newEntry.icon} onChange={modifyText} options={skillOptions} />
       <Input type="text" name="skill" value={newEntry.skill} onChange={modifyText} />
       <button onClick={confirm}> Ok </button>
       <button onClick={entryPurge}> clear </button>
