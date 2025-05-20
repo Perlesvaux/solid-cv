@@ -1,6 +1,9 @@
 import PropTypes from 'prop-types';
 import css from './TemplateSimple.module.css'
 
+import email from './assets/email.svg'
+import phone from './assets/phone.svg'
+
 export default function TemplateSimple({ getter }){
 
   return <section className={css.template}>
@@ -8,12 +11,12 @@ export default function TemplateSimple({ getter }){
 
     <h3>Contact</h3>
     <div className={css.mapping}>
-      <article> <p>Telephone </p></article>
+      <article> <p> <img src={phone} /> Telephone </p></article>
       <article> <p>{getter.phone}</p> </article>
     </div>
 
     <div className={css.mapping}>
-      <article> <p>e-mail</p> </article>
+      <article> <p> <img src={email} />e-mail</p> </article>
       <article> <p>{getter.email}</p> </article>
     </div>
 
@@ -40,9 +43,8 @@ export default function TemplateSimple({ getter }){
 
     <h3>Skills</h3>
     { 
-      getter.skills.map(({icon, skill}, indx) => <div key={indx} className={css.mapping}>
-        <article><img src={icon} /></article>
-        <article> <p>{skill}</p> </article>
+      getter.skills.map(({icon, skill}, indx) => <div key={indx} className={css.skills}>
+        <article> <p><img src={icon} />{skill}</p> </article>
       </div>)
     }
 

@@ -31,7 +31,6 @@ export default function InputDropdown({ index, name, type, value, onChange, dele
     }
   </>
 }
-    //<input data-index={index} list={options? `opt-${name}` : null } name={name} type={type} value={value} onChange={onChange} />
 
 InputDropdown.propTypes = {
   value: PropTypes.string,
