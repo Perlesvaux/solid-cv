@@ -109,6 +109,11 @@ export function useHandler (setter, field, initial){
   const entryDelete = (e) => {setter({type:'delete entry', field:field, value:Number(e.target.dataset.index)});console.log(field, e.target.dataset.index)}
   const entryEdit = (e) => setter({type:'update entry', field:field, value:e.target.value, at:Number(e.target.dataset.index), part:e.target.name})
 
+  // Local state setter to handle InputDataList components.
+  const modifyDropdown = (e) => setNewEntry({...newEntry, [e.currentTarget.name]: e.currentTarget.dataset.value}) 
+  
+  // shared state setter to handle InputDataList components.
+  const entryDropdownEdit = (e) => setter({type:'update entry', field:field, at:Number(e.currentTarget.dataset.index), part:e.currentTarget.name, value:e.currentTarget.dataset.value}) 
 
   // JSON contents overwrite shared state
   const dump = (e) => {
@@ -152,7 +157,7 @@ export function useHandler (setter, field, initial){
   }
 
 
-  return {newEntry, modifyText, modifyImage, eraseImage, entryPurge, entryDelete, entryEdit, confirm, entryImageDelete, entryImageEdit, singleUpdate, singleDelete, dump}
+  return {newEntry, modifyText, modifyImage, eraseImage, entryPurge, entryDelete, entryEdit, confirm, entryImageDelete, entryImageEdit, singleUpdate, singleDelete, dump, entryDropdownEdit, modifyDropdown}
 
 
 
@@ -178,9 +183,9 @@ import balance from './assets/balance.svg'
 import bank from './assets/bank.svg'
 import headset from './assets/headset.svg'
 export const skillOptions = [
-  { icon: balance, name: 'law' },
-  { icon: bank, name: 'academy' },
-  { icon: headset, name: 'headset'},
+  { icon: balance, tag: 'law' },
+  { icon: bank, tag: 'academy' },
+  { icon: headset, tag: 'headset'},
 
 ]
 
