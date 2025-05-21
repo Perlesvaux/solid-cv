@@ -1,3 +1,31 @@
+.form {
+  position: relative;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+
+}
+.form * {
+  /*box-sizing: border-box;*/
+  box-sizing:content-box;
+}
+
+
+.field {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  background-color: var(--brown3);
+  padding:20px;
+  border-radius: 11px;
+}
+.field > h2 {
+  color:var(--brown1);
+}
+
+
+
 @media print {
   .form {
     display: none;

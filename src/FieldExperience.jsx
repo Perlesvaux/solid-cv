@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import {useHandler} from './Lib.js'
 import Input from './Input.jsx'
+import InputOkClear from './InputOkClear.jsx'
 export default function FieldExperience({ getter, setter }){
   const initial = {where:"", when:"", what:"", desc:""}
   const {newEntry, 
@@ -17,8 +18,7 @@ export default function FieldExperience({ getter, setter }){
       <Input onChange={modifyText} type="text" name="what"  value={newEntry.what} />
       <Input onChange={modifyText} type="text" name="desc"  value={newEntry.desc} />
 
-      <button onClick={confirm}> Ok </button>
-      <button onClick={entryPurge}> clear </button>
+      <InputOkClear ok={confirm} clear={entryPurge}/>
 
       {
         getter.experience.map(({when, where, what, desc}, indx) => 

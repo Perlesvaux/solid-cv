@@ -1,0 +1,29 @@
+
+.container {
+  display: grid;
+  grid-template-columns: 90% auto;
+
+}
+
+.clear {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-color: var(--brown1);
+  opacity: .5;
+  z-index: 1;
+}
+.clear > img {
+  z-index: -1;
+  position: relative;
+}
+
+.ok {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-color: var(--brown4);
+  opacity: .5;
+}
+.ok > img {
+  z-index: -1;
+  position: relative;
+}

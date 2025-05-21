@@ -4,7 +4,7 @@ import Input from './Input.jsx'
 
 export default function FieldPhone({ getter, setter }){
 
-  const { singleUpdate, singleDelete } = useHandler(setter, 'phone')
+  const { singleUpdate } = useHandler(setter, 'phone')
 
   return (
     <Input 
@@ -12,7 +12,7 @@ export default function FieldPhone({ getter, setter }){
       name="phone" 
       value={getter.phone} 
       onChange={singleUpdate} 
-      deleter={singleDelete} />
+     />
   )
 }
 

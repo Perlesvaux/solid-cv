@@ -32,11 +32,17 @@ export default function App() {
   return (
     <>
       <section className={css.form}>
+        <div className={css.field}>
         <h2>Contact</h2>
-        <FieldName getter={state} setter={action} />
-        <FieldEmail getter={state} setter={action} />
-        <FieldPhone getter={state} setter={action} />
-        <FieldLinks getter={state} setter={action} />
+          <FieldName getter={state} setter={action} />
+          <FieldEmail getter={state} setter={action} />
+          <FieldPhone getter={state} setter={action} />
+        </div>
+
+        <div className={css.field}>
+          <h2>External Links</h2>
+          <FieldLinks getter={state} setter={action} />
+        </div>
 
         <h2>Skills</h2>
         <FieldSkills getter={state} setter={action} />

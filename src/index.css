@@ -7,6 +7,9 @@
 --blue2:#c8d2ca;
 --blue3:#709fa4;
 --blue4:#406d7e;
+--light-text:rgba(255,255,255, 0.8);
+
+
 
 
   display: flex;
@@ -15,3 +18,7 @@
   align-items: center;
 }
 
+
+button:hover > img {
+  transform: scale(1.3);
+}

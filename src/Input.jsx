@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types'
+import css from './Input.module.css'
 export default function Input({ index, name, type, value, onChange, deleter }){
 
   return (<>
-    <label>
+    <label className={css.container}>
       { name }
       <input data-index={index} name={name} type={type} value={value} onChange={onChange} />
       { deleter && <button onClick={deleter}>X</button> }

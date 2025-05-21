@@ -4,7 +4,7 @@ import Input from './Input.jsx'
 
 export default function FieldName({ getter, setter }){
 
-  const { singleUpdate, singleDelete } = useHandler(setter, 'name')
+  const { singleUpdate } = useHandler(setter, 'name')
 
   return (
     <Input 
@@ -12,7 +12,7 @@ export default function FieldName({ getter, setter }){
       name="name"
       value={getter.name} 
       onChange={singleUpdate} 
-      deleter={singleDelete} />
+      />
   )
 }
 

@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import {useHandler} from './Lib.js'
 import Input from './Input.jsx'
+import InputOkClear from './InputOkClear.jsx'
 
 export default function FieldLinks({ getter, setter }){
   const initial = {site:"", url:""}
@@ -15,8 +16,7 @@ export default function FieldLinks({ getter, setter }){
     <>
       <Input type="text" name="site" value={newEntry.site} onChange={modifyText} />
       <Input type="url" name="url" value={newEntry.url} onChange={modifyText} />
-      <button onClick={confirm}> Ok </button>
-      <button onClick={entryPurge}> clear </button>
+      <InputOkClear ok={confirm} clear={entryPurge} />
 
       {
         getter.links.map(({site, url}, indx) => 
