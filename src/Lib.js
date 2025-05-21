@@ -1,4 +1,4 @@
-import {useReducer, useState} from 'react'
+import {useReducer, useState, useEffect, useRef} from 'react'
 
 const blueprint = {
   // Contact
@@ -283,5 +283,45 @@ export const linkIcon = (name) => {
 
   }
 
+
+}
+
+
+import down from './assets/down.svg'
+export function useDropdownHandler (value, onChange){
+
+  const [selection, setSelection] = useState(()=> value ? value : down)
+  const [isVisible, setIsVisible] = useState(false)
+  const dropDownRef = useRef(null)
+
+  useEffect(() => {
+    const dispel_key = (e) => {
+      const isESC = ( e.key==='Escape' && dropDownRef.current )
+      if (isESC) setIsVisible(false)
+    }
+    const dispel_click = (e) => {
+      const clickedOutside = !(e.target === dropDownRef.current)
+      if(clickedOutside) setIsVisible(false)
+    }
+
+    addEventListener('keydown', dispel_key)
+    addEventListener('click', dispel_click)
+
+    return () => {
+      removeEventListener('keydown', dispel_click)
+      removeEventListener('click', dispel_click)
+    }
+  }, [])
+  
+
+  const selectIcon = (e) => {
+    onChange(e)
+    setSelection(e.currentTarget.dataset.value)
+    setIsVisible(false)
+  }
+
+  const toggle = () => setIsVisible(!isVisible)
+
+  return { selection, isVisible, toggle, selectIcon, dropDownRef }
 
 }

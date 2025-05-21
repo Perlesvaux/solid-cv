@@ -1,51 +1,18 @@
 import PropTypes from 'prop-types';
 //import {useState} from 'react'
-import {useState, useEffect, useRef} from 'react'
+//import {useState, useEffect, useRef} from 'react'
+import {useDropdownHandler} from './Lib.js'
 
 import css from './InputDropdown.module.css'
 
-import down from './assets/down.svg'
 
 export default function InputDropdown({ index, name, type, value, onChange, deleter, options }){
 
-  const [state, setState] = useState(()=> value ? value : down)
-  const [isVisible, setIsVisible] = useState(false)
-  const ref = useRef(null)
-  
-
-  useEffect(() => {
-    const dispel_key = (e) => {
-      const keyPressed = e.key
-      if (keyPressed === 'Escape' && ref.current) setIsVisible(false)
-    }
-    const dispel_click = (e) => {
-      const clickedOutside = !(e.target === ref.current)
-      if(clickedOutside) setIsVisible(false)
-      //const areaClicked = e.target
-      //console.log(areaClicked)
-      //console.log(ref.current)
-    }
-
-    addEventListener('keydown', dispel_key)
-    addEventListener('click', dispel_click)
-
-    return () => {
-      removeEventListener('keydown', dispel_click)
-    }
-  }, [])
-  
-
-  const selectIcon = (e) => {
-    onChange(e)
-    setState(e.currentTarget.dataset.value)
-    setIsVisible(false)
-  }
-
-  const toggle = () => setIsVisible(!isVisible)
+  const { selection, toggle, selectIcon, isVisible, dropDownRef } = useDropdownHandler(value, onChange)
 
   return <>
     { name }
-    <button ref={ref} onClick={toggle} className={css.toggle}> <img src={state} className={css.toggleImage}/> </button>
+    <button ref={dropDownRef} onClick={toggle} className={css.toggle}> <img src={selection} className={css.toggleImage}/> </button>
     {
       options && isVisible &&
       <div className={css.options}>
