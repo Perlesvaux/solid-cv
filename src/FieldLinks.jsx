@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import {useHandler} from './Lib.js'
 import Input from './Input.jsx'
 import InputOkClear from './InputOkClear.jsx'
+import css from './FieldSkills.module.css'
+import trash from './assets/trash.svg'
 
 export default function FieldLinks({ getter, setter }){
   const initial = {site:"", url:""}
@@ -20,10 +22,12 @@ export default function FieldLinks({ getter, setter }){
 
       {
         getter.links.map(({site, url}, indx) => 
-          <div key={indx}>
-            <Input index={indx} type="text" name="site" value={site} onChange={entryEdit} />
-            <Input index={indx} type="text" name="url" value={url}  onChange={entryEdit} />
-            <button data-index={indx} onClick={entryDelete}>x</button>
+          <div key={indx} className={css.entries}>
+            <div className={css.inputs}>
+              <Input index={indx} type="text" name="site" value={site} onChange={entryEdit} />
+              <Input index={indx} type="text" name="url" value={url}  onChange={entryEdit} />
+             </div> 
+            <button data-index={indx} onClick={entryDelete} className={css.remove}><img src={trash} /></button>
           </div>)
       }
     </>

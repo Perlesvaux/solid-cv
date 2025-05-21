@@ -106,7 +106,7 @@ export function useHandler (setter, field, initial){
 
   // Enhanced shared state setters (manipulate existing entries in: education, skills, experience, links) extends useReducer
   const entryPurge = () => setter({type:'delete all entries', field: field})
-  const entryDelete = (e) => {setter({type:'delete entry', field:field, value:Number(e.target.dataset.index)});console.log(field, e.target.dataset.index)}
+  const entryDelete = (e) => {setter({type:'delete entry', field:field, value:Number(e.currentTarget.dataset.index)});console.log(field, e.currentTarget.dataset.index)}
   const entryEdit = (e) => setter({type:'update entry', field:field, value:e.target.value, at:Number(e.target.dataset.index), part:e.target.name})
 
   // Local state setter to handle InputDataList components.
