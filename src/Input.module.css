@@ -4,8 +4,9 @@
   background-color: var(--brown2);
   color: var(--light-text);
   text-align: center;
-  border-radius: 11px;
+  border-radius: 20px;
   text-transform: capitalize;
+  align-items: center;
   /*box-sizing: content-box;*/
 }
 .container > input {

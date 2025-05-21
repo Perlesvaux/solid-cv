@@ -1,8 +1,8 @@
 .toggle {
-  width:100%;
+  /*width:100%;*/
   background-color: var(--blue2);
-  border-top-left-radius: 9px;
-  border-top-right-radius: 9px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
   z-index: 1;
   opacity: .5;
 }
@@ -17,12 +17,16 @@
 .options {
   z-index: 9;
   position: absolute;
-  /*width:500px;*/
+  margin: auto;
+  left: 0; right:0;
+
+  width:200px;
 }
 
 .options > button {
   background-color: var(--blue2);
   border: 2px solid var(--blue2);
+
 }
 
 .options > button:hover {
@@ -30,7 +34,14 @@
 }
 
 
-/*.container {*/
-/*  display: grid;*/
-/*  grid-template-columns: 5vw auto;*/
-/*}*/
+.container {
+  display: grid;
+  grid-template-columns: 33% 67%;
+  background-color: var(--brown2);
+  color: var(--light-text);
+  text-align: center;
+  border-radius: 11px;
+  text-transform: capitalize;
+  align-items: center;
+  border-radius: 20px;
+}

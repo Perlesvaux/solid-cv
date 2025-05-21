@@ -32,11 +32,13 @@ export default function App() {
   return (
     <>
       <section className={css.form}>
+
         <div className={css.field}>
-        <h2>Contact</h2>
+          <h2>Basic info</h2>
           <FieldName getter={state} setter={action} />
           <FieldEmail getter={state} setter={action} />
           <FieldPhone getter={state} setter={action} />
+          <FieldProfile getter={state} setter={action} />
         </div>
 
         <div className={css.field}>
@@ -44,15 +46,21 @@ export default function App() {
           <FieldLinks getter={state} setter={action} />
         </div>
 
-        <h2>Skills</h2>
-        <FieldSkills getter={state} setter={action} />
-        <h2>Experience</h2>
-        <FieldExperience getter={state} setter={action} />
-        <h2>Education</h2>
-        <FieldEducation getter={state} setter={action} />
+        <div className={css.field}>
+          <h2>Skills</h2>
+          <FieldSkills getter={state} setter={action} />
+        </div>
 
-        <h2>Profile</h2>
-        <FieldProfile getter={state} setter={action} />
+        <div className={css.field}>
+          <h2>Experience</h2>
+          <FieldExperience getter={state} setter={action} />
+        </div>
+
+        <div className={css.field}>
+          <h2>Education</h2>
+          <FieldEducation getter={state} setter={action} />
+        </div>
+
 
         <h3>Output</h3>
         <button onClick={print}> Sneak peek </button>
