@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import {useHandler} from './Lib.js'
 import Input from './Input.jsx'
 import InputOkClear from './InputOkClear.jsx'
-import css from './FieldSkills.module.css'
+import css from './FieldLinks.module.css'
 import trash from './assets/trash.svg'
 
 export default function FieldLinks({ getter, setter }){
