@@ -1,4 +1,8 @@
+.container * {
+  cursor: pointer;
+}
 .container {
+  cursor: pointer;
   display: grid;
   grid-template-columns: 33% 50% 17%;
   background-color: var(--brown2);

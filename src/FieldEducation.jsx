@@ -3,6 +3,8 @@ import {useHandler} from './Lib.js'
 import InputImage from './InputImage.jsx'
 import Input from './Input.jsx'
 import InputOkClear from './InputOkClear.jsx'
+import css from './FieldEducation.module.css'
+import trash from './assets/trash.svg'
 
 export default function FieldEducation({ getter, setter }){
   const initial = {institution:'', title:'', url:'', image:''}
@@ -30,13 +32,15 @@ export default function FieldEducation({ getter, setter }){
 
       {
         getter.education.map(({institution, title, url, image}, indx) => 
-          <div key={indx}>
+          <div key={indx} className={css.entries}>
+            <div className={css.inputs}>
             <Input onChange={entryEdit} index={indx} type='text' name='institution' value={institution}/>
             <Input onChange={entryEdit} index={indx} type='text' name='title' value={title}  />
             <Input onChange={entryEdit} index={indx} type='text' name='url' value={url} />
             <InputImage index={indx} name='image' onChange={entryImageEdit} deleter={entryImageDelete} /> 
             {image && <img src={image} />}
-            <button data-index={indx} onClick={entryDelete}>x</button>
+            </div>
+            <button data-index={indx} onClick={entryDelete} className={css.remove}><img src={trash} /></button>
           </div>)
       }
     </>
