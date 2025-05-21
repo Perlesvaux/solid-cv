@@ -3,6 +3,8 @@ import {useHandler, skillOptions} from './Lib.js'
 import Input from './Input.jsx'
 import InputDropdown from './InputDropdown.jsx'
 import InputOkClear from './InputOkClear.jsx'
+import css from './FieldSkills.module.css'
+import trash from './assets/trash.svg'
 export default function FieldSkills({ getter, setter }){
   const initial = {icon:"", skill:""}
   const {newEntry, 
@@ -22,10 +24,12 @@ export default function FieldSkills({ getter, setter }){
 
       {
         getter.skills.map(({icon, skill}, indx) => 
-          <div key={indx}> 
-            <InputDropdown index={indx} type="text" name="icon"  value={icon} onChange={entryDropdownEdit} options={skillOptions} />
-            <Input index={indx} type="text" name="skill" value={skill} onChange={entryEdit} /> 
-            <button data-index={indx} onClick={entryDelete}>x</button>
+          <div key={indx} className={css.entries}> 
+            <div className={css.inputs}>
+              <InputDropdown index={indx} type="text" name="icon"  value={icon} onChange={entryDropdownEdit} options={skillOptions} />
+              <Input index={indx} type="text" name="skill" value={skill} onChange={entryEdit} /> 
+            </div>
+            <button data-index={indx} onClick={entryDelete} className={css.remove}><img src={trash}/></button>
           </div>)
       }
     </>
