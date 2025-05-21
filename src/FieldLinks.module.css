@@ -12,16 +12,16 @@
   border-radius: 0;
 }
 .inputs > label {
-  background-color: var(--blue4);
+  background-color: var(--brown1);
 }
 
 .remove {
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   box-sizing:content-box;
-  background-color: var(--blue4);
+  background-color: var(--brown1);
   z-index: 1;
-  opacity: 0.8;
+  opacity: 0.5;
 } 
 .remove > img {
   z-index: -1;
