@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types'
 import { useRef } from 'react'
+import css from './InputImage.module.css'
+import cancel from './assets/cancel.svg'
 
 export default function InputImage({ index, name, onChange, deleter }){
   const ref = useRef(null)
-  //const hasIndex = index !== null && index !== undefined
 
   const handleImageDelete = (event) => { 
     deleter(event)
@@ -11,9 +12,10 @@ export default function InputImage({ index, name, onChange, deleter }){
   }
 
   return(<>
-    <label> {name}
+    <label className={css.container}> 
+      {name}
       <input data-index={index}  name={name} type='file' accept='image/*' ref={ref} onChange={onChange}/>
-      <button data-index={index} data-part={name} onClick={ handleImageDelete }>unload</button>
+      <button data-index={index} data-part={name} onClick={ handleImageDelete }><img src={cancel} /></button>
     </label>
   </>)
 }

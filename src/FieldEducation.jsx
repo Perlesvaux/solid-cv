@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import {useHandler} from './Lib.js'
 import InputImage from './InputImage.jsx'
 import Input from './Input.jsx'
+import InputOkClear from './InputOkClear.jsx'
 
 export default function FieldEducation({ getter, setter }){
   const initial = {institution:'', title:'', url:'', image:''}
@@ -25,8 +26,7 @@ export default function FieldEducation({ getter, setter }){
       <Input onChange={modifyText} type="text" name="url" value={newEntry.url} />
       <InputImage name="image" onChange={modifyImage} deleter={eraseImage} />
 
-      <button onClick={confirm}> Ok </button>
-      <button onClick={entryPurge}> clear </button>
+      <InputOkClear ok={confirm} clear={entryPurge}/>
 
       {
         getter.education.map(({institution, title, url, image}, indx) => 

@@ -130,7 +130,7 @@ export function useHandler (setter, field, initial){
   };
 
   // Shared state setter to handle existing image entries.
-  const entryImageDelete = (e) => setter({ type:'update entry', field:field, value:'', at:Number(e.target.dataset.index), part:e.target.dataset.part })
+  const entryImageDelete = (e) => { setter({ type:'update entry', field:field, value:'', at:Number(e.currentTarget.dataset.index), part:e.currentTarget.dataset.part });console.log(e.currentTarget) }
 
   const entryImageEdit = (e) => {
     const file = e.target.files[0]
