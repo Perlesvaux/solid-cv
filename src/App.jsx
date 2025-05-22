@@ -18,6 +18,7 @@ import FieldEducation from './FieldEducation.jsx'
 import FieldLinks from './FieldLinks.jsx'
 import Dump from './Dump.jsx'
 import DumpLoader from './DumpLoader.jsx'
+import DumpPrint from './DumpPrint.jsx'
 
 //import './App.css'
 import css from './App.module.css'
@@ -60,14 +61,12 @@ export default function App() {
           <h2>Education</h2>
           <FieldEducation getter={state} setter={action} />
         </div>
+      </section>
 
-
-        <h3>Output</h3>
-        <button onClick={print}> Sneak peek </button>
-        <Dump getter={state} />
-
-        <h3>Input</h3>
+      <section className={css.dashboard}>
         <DumpLoader getter={state} setter={action}/>
+        <Dump getter={state} />
+        <DumpPrint/>
       </section>
 
       <Template getter={state} />
@@ -76,6 +75,7 @@ export default function App() {
   )
 }
 
+        //<button onClick={print}> Sneak peek </button>
 
       //<ImgUpload />
       //<SillyForm />

@@ -1,0 +1,18 @@
+.container {
+  display: inline-block;
+  padding: 10px 20px;
+  background: var(--blue1);
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  transition: background 0.3s;
+  text-align: center;
+}
+
+.container:hover {
+  opacity: 0.77;
+}
+
+.container:hover > img {
+  transform: scale(1.15);
+}

@@ -1,5 +1,8 @@
 import PropTypes from 'prop-types'
 import  {downloadJSON} from './Lib.js'
+import download from './assets/download.svg'
+import css from './Dump.module.css'
+
 export default function Dump({getter}){
 
 const handleSubmit = (e) => {
@@ -10,7 +13,7 @@ const handleSubmit = (e) => {
   return (
   <>
     <form>
-      <button onClick={handleSubmit}> download as json </button>
+      <button onClick={handleSubmit} className={css.container}> <img src={download} /> </button>
     </form>
   </>
   )

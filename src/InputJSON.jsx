@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types'
 import { useRef } from 'react'
 //import {isValidJSON} from './Lib.js'
+//import cancel from './assets/cancel.svg'
+import css from './InputJSON.module.css'
 
-export default function InputJSON({ name, changer }){
+export default function InputJSON({ changer, name, icon }){
   const ref = useRef(null)
 
   const handleFileUpload = (event) => {
@@ -14,18 +16,20 @@ export default function InputJSON({ name, changer }){
     }
   };
 
-  return(<>
-    <label> {name}
-      <input type="file" accept="application/json" ref={ref} onChange={handleFileUpload}/>
-    </label>
-    <div onClick={()=>{ ref.current.value='' }}>X</div>
-  </>)
+  return(
+      <label htmlFor={name} className={css.container}> 
+        <img src={icon}/>
+        <input id={name} type="file" accept="application/json" ref={ref} onChange={handleFileUpload} style={{display:"none"}}/>
+      </label>
+  )
 
 }
 
+    //<button onClick={()=>{ ref.current.value='' }}><img src={cancel}/></button>
 
 InputJSON.propTypes = {
-  name:PropTypes.string.isRequired,
   changer:PropTypes.func,
+  name:PropTypes.string.isRequired,
+  icon:PropTypes.string.isRequired,
 }
 

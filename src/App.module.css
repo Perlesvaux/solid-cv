@@ -28,8 +28,37 @@
 
 
 
+.dashboard {
+  position: fixed;
+  bottom:8px;
+  left:8px;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+}
+
+.dashboard * {
+  box-sizing:content-box;
+}
+
+/*.dashboard > form {*/
+/*  width: 100%;*/
+/*}*/
+.dashboard > form > button {
+  width:100%;
+  /*box-sizing:content-box*/
+  box-sizing:border-box;
+}
+
+
+
+
 @media print {
   .form {
+    display: none;
+  }
+  .dashboard {
     display: none;
   }
 }
