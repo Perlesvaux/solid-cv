@@ -30,6 +30,7 @@
 }
 
 .options > button:hover {
+  opacity: 1;
   transform: scale(1.4);border-radius: 20px;
 }
 

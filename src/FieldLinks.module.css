@@ -16,8 +16,11 @@
 }
 
 .remove {
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
   box-sizing:content-box;
   background-color: var(--brown1);
   z-index: 1;
