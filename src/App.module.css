@@ -18,7 +18,7 @@
   display: flex;
   flex-direction: column;
   row-gap: 8px;
-  background-color: var(--brown3);
+  background-color: #A59471;
   padding:20px;
   border-radius: 11px;
 }
