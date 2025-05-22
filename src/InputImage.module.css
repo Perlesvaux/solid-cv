@@ -22,6 +22,7 @@
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   background-color: var(--brown1);
+  /*background-color: var(--brown2);*/
   opacity: 0.7;
   z-index: 1;
 }

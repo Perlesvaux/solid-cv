@@ -22,7 +22,8 @@
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   box-sizing:content-box;
-  background-color: crimson;
+  /*background-color: crimson;*/
+  background-color: var(--brown1);
   z-index: 1;
   opacity: 0.5;
 } 

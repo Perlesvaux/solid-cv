@@ -8,7 +8,8 @@
 .clear {
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
-  background-color: var(--brown1);
+  /*background-color: var(--brown1);*/
+  background-color: crimson;
   opacity: .5;
   z-index: 1;
 }
