@@ -31,7 +31,7 @@ export default function App() {
   const print = () => console.log(state)
 
   return (
-    <>
+    <main className={css.container}>
       <section className={css.form}>
 
         <div className={css.field}>
@@ -70,7 +70,7 @@ export default function App() {
       </section>
 
       <Template getter={state} />
-    </>
+    </main>
 
   )
 }

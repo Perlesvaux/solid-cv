@@ -4,7 +4,7 @@ import {useState} from 'react'
 import css from './Template.module.css'
 
 export default function Template ({getter}) {
-  const [state, setState] = useState("")
+  const [state, setState] = useState("select")
 
   const options = [
     "simple", "cute"
@@ -22,14 +22,14 @@ export default function Template ({getter}) {
   return <>
 
     <section className={css.templateSelection}>
-      <input list="options" onChange={(e)=>setState(e.target.value)} />
-
-      <datalist id="options">
+      <select list="options" onChange={(e)=>setState(e.target.value)} value={state}>
+        <option value="">-- Choose a Template! --</option>
         {options.map(( opt, indx )=> <option key={indx} value={opt}> {opt} </option>)}
-      </datalist>
+      </select>
     </section>
 
 
+    {console.log(state)}
       {templateStyle()}
 
   </>
