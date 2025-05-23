@@ -99,8 +99,12 @@
 
   /*height: 100vh;*/
 
-
-
+@media (orientation: portrait) {
+  .screen {
+    background-color: red;
+    flex-direction: column;
+  }
+}
 
 @media print {
   .form {
