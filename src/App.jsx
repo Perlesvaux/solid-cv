@@ -19,6 +19,7 @@ import FieldLinks from './FieldLinks.jsx'
 import Dump from './Dump.jsx'
 import DumpLoader from './DumpLoader.jsx'
 import DumpPrint from './DumpPrint.jsx'
+import TemplateSimple from './TemplateSimple.jsx'
 
 //import './App.css'
 import css from './App.module.css'
@@ -32,6 +33,9 @@ export default function App() {
 
   return (
     <main className={css.container}>
+
+      <div className={css.screen}>
+
       <section className={css.form}>
 
         <div className={css.field}>
@@ -63,13 +67,16 @@ export default function App() {
         </div>
       </section>
 
+
+      <TemplateSimple getter={state} />
+      </div>
+
       <section className={css.dashboard}>
         <DumpLoader getter={state} setter={action}/>
         <Dump getter={state} />
         <DumpPrint/>
       </section>
 
-      <Template getter={state} />
     </main>
 
   )

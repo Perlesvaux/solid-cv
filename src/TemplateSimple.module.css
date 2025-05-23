@@ -34,11 +34,16 @@
   text-rendering: optimizeLegibility;
   color:var(--color-text);
 
-  /* Layout */
+  /* preview Layout */
 
   display: flex;
   flex-direction: column;
-  width:90%;
+  width:33%;
+
+  overscroll-behavior: contain;
+  height: 90vh;
+  overflow-y: auto; 
+
 }
 
 
@@ -115,4 +120,10 @@
 /*}*/
 
 
+@media print {
+  .template {
+    width:90%;
+    height:auto;
+  }
+}
 
