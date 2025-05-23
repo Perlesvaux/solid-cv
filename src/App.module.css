@@ -103,6 +103,8 @@
   .screen {
     background-color: red;
     flex-direction: column;
+    align-items: center;
+    height: 88vh;
   }
 }
 
@@ -112,5 +114,8 @@
   }
   .dashboard {
     display: none;
+  }
+  .screen {
+    height:100%;
   }
 }

@@ -119,11 +119,17 @@
 /*  background-color: pink;*/
 /*}*/
 
+@media (orientation: portrait) {
+  .template {
+    display: none;
+  }
+}
 
 @media print {
   .template {
-    width:90%;
+    width:100%;
     height:auto;
+    display: block;
   }
 }
 
