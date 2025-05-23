@@ -6,8 +6,12 @@
   overflow-y: hidden; 
 }
 
-.templateSelection{
-  background-color: red;
+.templateSelection > select {
+  text-align: center;
+  width:100%;
+  background-color: var(--blue4);
+  color:white;
+  border-radius: 5px;
 }
 
 @media print {
