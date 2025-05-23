@@ -19,7 +19,7 @@ import FieldLinks from './FieldLinks.jsx'
 import Dump from './Dump.jsx'
 import DumpLoader from './DumpLoader.jsx'
 import DumpPrint from './DumpPrint.jsx'
-import TemplateSimple from './TemplateSimple.jsx'
+//import TemplateSimple from './TemplateSimple.jsx'
 
 //import './App.css'
 import css from './App.module.css'
@@ -68,7 +68,11 @@ export default function App() {
       </section>
 
 
-      <TemplateSimple getter={state} />
+
+
+      <Template getter={state} />
+
+
       </div>
 
       <section className={css.dashboard}>

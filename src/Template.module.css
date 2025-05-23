@@ -1,9 +1,21 @@
-.template {
-  /*background-color: green;*/
+.container {
+  width: 33%;
+  overscroll-behavior: contain;
+  height: 90vh;
+  /*overflow-y: auto; */
+  overflow-y: hidden; 
+}
+
+.templateSelection{
+  background-color: red;
 }
 
 @media print {
   .templateSelection{
     display: none;
+  }
+  .container {
+    width: 100%;
+    height: auto;
   }
 }

@@ -21,16 +21,18 @@ export default function Template ({getter}) {
 
   return <>
 
-    <section className={css.templateSelection}>
-      <select list="options" onChange={(e)=>setState(e.target.value)} value={state}>
-        <option value="">-- Choose a Template! --</option>
-        {options.map(( opt, indx )=> <option key={indx} value={opt}> {opt} </option>)}
-      </select>
+    <section className={css.container}>
+      <div  className={css.templateSelection}>
+        <select list="options" onChange={(e)=>setState(e.target.value)} value={state}>
+          <option value="">-- Choose a Template! --</option>
+          {options.map(( opt, indx )=> <option key={indx} value={opt}> {opt} </option>)}
+        </select>
+      </div>
+      {templateStyle()}
     </section>
 
 
     {console.log(state)}
-      {templateStyle()}
 
   </>
 }

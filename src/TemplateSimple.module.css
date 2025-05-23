@@ -38,10 +38,10 @@
 
   display: flex;
   flex-direction: column;
-  width:33%;
+  /*width:33%;*/
 
-  overscroll-behavior: contain;
-  height: 90vh;
+  /*overscroll-behavior: contain;*/
+  height: 87vh;
   overflow-y: auto; 
 
 }
