@@ -65,6 +65,15 @@ export default function TemplateSimple({ getter }){
     <h3>Profile</h3>
     <article>{getter.profile}</article>
 
+    <div className={css.break}/>
+
+    { 
+  //const initial = {institution:'', title:'', url:'', image:''}
+      getter.education.map(({image}, indx) => <div key={indx} className={css.mapping}>
+        <article> <p><img src={image}/></p>  </article>
+      </div>)
+    }
+
 
   </section>
 

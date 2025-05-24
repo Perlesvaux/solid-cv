@@ -119,6 +119,11 @@
 /*  background-color: pink;*/
 /*}*/
 
+.break {
+  page-break-after: always;
+  break-after: page; 
+}
+
 @media (orientation: portrait) {
   .template {
     display: none;
@@ -127,9 +132,13 @@
 
 @media print {
   .template {
+    position: absolute;
     width:100%;
-    height:auto;
+    height: auto !important;
     display: block;
+    overflow: visible !important;
+  }
+  .mapping, .skills {
+    break-inside: avoid;
   }
 }
-
