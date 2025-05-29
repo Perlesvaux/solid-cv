@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import {linkIcon} from './Lib.js'
+import AreaImages from './AreaImages.jsx'
 import css from './TemplateSimple.module.css'
 
 import email from './assets/email.svg'
@@ -13,18 +14,18 @@ export default function TemplateSimple({ getter }){
     <h3>Contact</h3>
     <div className={css.mapping}>
       <article> <p> <img src={phone} /> Telephone </p></article>
-      <article> <p>  <a href={`tel:${getter.phone}`}>{getter.phone}</a> </p> </article>
+      <article> <p>  <a href={`tel:${getter.phone}`} target='_blank'>{getter.phone}</a> </p> </article>
     </div>
 
     <div className={css.mapping}>
       <article> <p> <img src={email} />e-mail</p> </article>
-      <article> <p> <a href={`mailto:${getter.email}`}>{getter.email}</a></p> </article>
+      <article> <p> <a href={`mailto:${getter.email}`} target='_blank'>{getter.email}</a></p> </article>
     </div>
 
     { 
       getter.links.map(({site, url}, indx) => <div key={indx} className={css.mapping}>
         <article><p> <img src={linkIcon(site)} /> {site}</p></article>
-        <article> <p><a href={url}>{url}</a></p> </article>
+        <article> <p><a href={url} target='_blank'>{url}</a></p> </article>
       </div>)
     }
 
@@ -57,7 +58,7 @@ export default function TemplateSimple({ getter }){
         <article>
           <p>{institution}</p> 
         </article>
-        <article> <p><a href={url}>{title}</a></p>  </article>
+        <article> <p><a href={url} target='_blank'>{title}</a></p>  </article>
       </div>)
     }
 
@@ -67,12 +68,7 @@ export default function TemplateSimple({ getter }){
 
     <div className={css.break}/>
 
-    { 
-  //const initial = {institution:'', title:'', url:'', image:''}
-      getter.education.map(({image}, indx) => <div key={indx} className={css.mapping}>
-        <article> <p><img src={image}/></p>  </article>
-      </div>)
-    }
+    <AreaImages getter={getter} />
 
 
   </section>

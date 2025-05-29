@@ -1,0 +1,65 @@
+/* Style for each card */
+.card {
+  --color-primary: #2b6cb0; /* Professional blue */
+  /* Make each card take up the full viewport height */
+  /*height: 96vh;*/
+  /* Center content vertically and horizontally */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Simple red card style (as per your example) */
+  /*background-color: green;*/
+
+  /*margin: 0;*/
+  /*padding: 8px 0 8px 0;*/
+  /* Ensure each card starts on a new page */
+  page-break-after: always;
+  /* Remove any borders or spacing that might affect centering */
+  border: none;
+  box-sizing: border-box;
+}
+.card img {
+  height: auto;
+  width:100%;
+}
+.card figure {
+  background-color: var(--color-primary);
+  border-radius: 10px;
+}
+.card figcaption {
+  text-align: center;
+  height: 35px;
+}
+.card a {
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--blue1);
+}
+
+/* Remove the page break after the last card */
+.card:last-child {
+  page-break-after: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+
+@media print {
+  .toggle {
+    display: none;
+  }
+
+  .card {
+    /*position: absolute;*/
+    height: 96vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  .card img {
+    height: auto;
+    width:90vw;
+  }
+}

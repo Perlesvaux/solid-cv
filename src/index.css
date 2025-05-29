@@ -34,4 +34,19 @@ button {
 input {
   border: 5px solid transparent;
 }
+html {
+  /*background-image: url('/bg.web');*/
+  background-image:
+    linear-gradient(270deg,rgba(64, 109, 126, 0.8) 0%, rgba(225, 225, 225, 0.7) 50%, rgba(65, 58, 44, 0.8) 100%),
+    url("/bg.png");
+  /*background-repeat: no-repeat;*/
+  /*background-size: cover;*/
+  background-position: center;
+  /*height:fit-content;*/
+  /*height: 100%;*/
+}
+body {
+  /*backdrop-filter: blur(1.5px);*/
+}
+
 /*button:*/

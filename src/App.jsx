@@ -19,6 +19,7 @@ import FieldLinks from './FieldLinks.jsx'
 import Dump from './Dump.jsx'
 import DumpLoader from './DumpLoader.jsx'
 import DumpPrint from './DumpPrint.jsx'
+//import AreaImages from './AreaImages.jsx'
 //import TemplateSimple from './TemplateSimple.jsx'
 
 //import './App.css'
@@ -30,6 +31,11 @@ export default function App() {
   const [state, action, blueprint] = useResume()
 
   const print = () => console.log(state)
+
+  //return <>
+  //  <AreaImages getter={state} />
+  //</>
+
 
   return (
     <main className={css.container}>
@@ -84,9 +90,5 @@ export default function App() {
     </main>
 
   )
+
 }
-
-        //<button onClick={print}> Sneak peek </button>
-
-      //<ImgUpload />
-      //<SillyForm />

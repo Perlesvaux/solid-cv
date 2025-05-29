@@ -4,6 +4,13 @@
   height: 90vh;
   /*overflow-y: auto; */
   overflow-y: hidden; 
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 11px;
+  /*transform: scale(0.8);*/
+  padding: 20px;
+  box-sizing: border-box;
+  border: 5px solid var(--blue4);
 }
 
 .templateSelection > select {

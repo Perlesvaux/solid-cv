@@ -19,6 +19,9 @@
   row-gap: 8px;
   font-family: 'IBM Plex Mono', 'Courier New', monospace;
   /*text-transform: uppercase;*/
+  background-color: var(--brown2);
+  border-radius: 11px;
+  border: 5px solid var(--brown1);
 }
 .form * {
   /*box-sizing: border-box;*/
@@ -33,6 +36,7 @@
   row-gap: 8px;
   background-color: #A59471;
   padding:20px;
+  margin:10px;
   border-radius: 11px;
 }
 .field > h2 {
@@ -54,8 +58,9 @@
 
 
 .dashboard {
-  /*background-color: red;*/
-  width: 400px;
+  /*background-color: var(--brown1);*/
+  backdrop-filter: blur(10px);
+  width: 62%;
   justify-content: space-evenly;
   /*align-items: center;*/
   /*height: 5vh;*/
@@ -105,6 +110,9 @@
     flex-direction: column;
     align-items: center;
     height: 88vh;
+  }
+  .dashboard {
+    width:100%;
   }
 }
 
