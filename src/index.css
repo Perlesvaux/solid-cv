@@ -50,3 +50,9 @@ body {
 }
 
 /*button:*/
+
+@media print {
+  html {
+    background-image: none;
+  }
+}

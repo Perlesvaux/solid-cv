@@ -4,10 +4,8 @@
   height: 90vh;
   /*overflow-y: auto; */
   overflow-y: hidden; 
-  backdrop-filter: blur(10px);
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 11px;
-  /*transform: scale(0.8);*/
   padding: 20px;
   box-sizing: border-box;
   border: 5px solid var(--blue4);
@@ -36,5 +34,12 @@
   .container {
     width: 100%;
     height: auto;
+
+
+    background-color:auto;
+    border-radius: 0px;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
   }
 }
