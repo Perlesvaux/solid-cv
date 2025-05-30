@@ -12,9 +12,7 @@ const handleSubmit = (e) => {
 
   return (
   <>
-    <form>
       <button onClick={handleSubmit} className={css.container}> <img src={download} /> </button>
-    </form>
   </>
   )
 }
