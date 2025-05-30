@@ -52,7 +52,7 @@
   /*justify-content: center;*/
   /*align-items: center;*/
   /*overscroll-behavior: contain;*/
-  height: 90vh;
+  height: var(--h);
   /*overflow-y: auto; */
 }
 
@@ -111,11 +111,18 @@
 
 @media (orientation: portrait) {
   .screen {
-    /*background-color: red;*/
+    background-color: red;
     flex-direction: column;
     align-items: center;
-    height: 88vh;
+    height: auto;
   }
+
+  .form {
+    height: var(--portrait-h);
+    /*height: 50vh;*/
+  }
+
+
   .dashboard {
     width:100%;
   }

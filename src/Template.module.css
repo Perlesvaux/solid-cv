@@ -1,7 +1,7 @@
 .container {
   width: 36%;
   overscroll-behavior: contain;
-  height: 90vh;
+  height: var(--h);
   overflow-y: auto; 
   /*overflow-y: hidden; */
   background-color: rgba(255, 255, 255, 0.8);
@@ -28,7 +28,8 @@
   .container {
     /*background-color: cyan;*/
     width: 100%;
-    height: auto;
+    height: 15vh;
+    overflow-y: visible;
   }
 }
 

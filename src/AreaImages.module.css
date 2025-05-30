@@ -23,7 +23,7 @@
   width:100%;
 }
 .card figure {
-  background-color: var(--color-primary);
+  /*background-color: var(--color-primary);*/
   border-radius: 10px;
 }
 .card figcaption {
@@ -33,7 +33,7 @@
 .card a {
   font-weight: 700;
   text-decoration: none;
-  color: var(--blue1);
+  color: var(--color-primary);
 }
 
 /* Remove the page break after the last card */
@@ -45,6 +45,17 @@
   display: none;
 }
 
+.toggle {
+  background-color: transparent;
+}
+
+
+@media (orientation: portrait) {
+  .card {
+    display: none;
+  }
+}
+
 
 @media print {
   .toggle {
@@ -53,6 +64,7 @@
 
   .card {
     /*position: absolute;*/
+    display: flex;
     height: 96vh;
     margin: 0;
     padding: 0;
