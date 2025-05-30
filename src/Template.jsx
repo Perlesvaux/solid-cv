@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import TemplateSimple from './TemplateSimple.jsx'
+import TemplateSpanishSimple from './TemplateSpanishSimple.jsx'
 import {useState} from 'react'
 import css from './Template.module.css'
 import AreaImages from './AreaImages.jsx'
@@ -8,13 +9,18 @@ export default function Template ({getter}) {
   const [state, setState] = useState("select")
 
   const options = [
-    "simple", "cute"
+    "Simple (eng)", "Simple (spa)"
   ]
 
   const templateStyle = () =>{
     switch (state) {
-      case "simple":
+
+      case "Simple (eng)":
         return <TemplateSimple getter={getter}/>
+
+      case "Simple (spa)":
+        return <TemplateSpanishSimple getter={getter}/>
+
     }
 
   }
