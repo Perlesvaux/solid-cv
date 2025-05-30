@@ -17,11 +17,12 @@
   background-color: var(--blue4);
   color:white;
   border-radius: 5px;
+  height: 3em;
 }
 
 @media (orientation: portrait) {
   .container {
-    background-color: cyan;
+    /*background-color: cyan;*/
     width: 100%;
     height: auto;
   }

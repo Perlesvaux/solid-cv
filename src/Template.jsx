@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import TemplateSimple from './TemplateSimple.jsx'
 import {useState} from 'react'
 import css from './Template.module.css'
+import AreaImages from './AreaImages.jsx'
 
 export default function Template ({getter}) {
   const [state, setState] = useState("select")
@@ -28,7 +29,9 @@ export default function Template ({getter}) {
           {options.map(( opt, indx )=> <option key={indx} value={opt}> {opt} </option>)}
         </select>
       </div>
+
       {templateStyle()}
+      <AreaImages getter={getter} />
     </section>
 
 

@@ -68,7 +68,9 @@ export default function TemplateSimple({ getter }){
 
     <div className={css.break}/>
 
-    <AreaImages getter={getter} />
+    {
+      //<AreaImages getter={getter} />
+    }
 
 
   </section>
