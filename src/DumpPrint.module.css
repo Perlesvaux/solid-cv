@@ -3,7 +3,8 @@
   cursor: pointer;
   transition: background 0.3s;
 
-  background: var(--blue3);
+  /*background: var(--blue3);*/
+  background: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
