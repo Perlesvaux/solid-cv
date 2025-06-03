@@ -10,7 +10,7 @@ export default function InputDropdown({ index, name, type, value, onChange, dele
 
   const { selection, toggle, selectIcon, isVisible, dropDownRef } = useDropdownHandler(value, onChange)
 
-  return <>
+  return <div>
   <label className={css.container}>
     { name }
     <button ref={dropDownRef} onClick={toggle} className={css.toggle}> <img src={selection} className={css.toggleImage}/> </button>
@@ -26,7 +26,7 @@ export default function InputDropdown({ index, name, type, value, onChange, dele
         { deleter && <button onClick={deleter}>X</button> }
       </div>
     }
-  </>
+  </div>
 }
 
 InputDropdown.propTypes = {

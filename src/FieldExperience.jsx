@@ -16,13 +16,6 @@ export default function FieldExperience({ getter, setter }){
 
   return (
     <>
-      <Input onChange={modifyText} type="text" name="when"  value={newEntry.when} />
-      <Input onChange={modifyText} type="text" name="where" value={newEntry.where} />
-      <Input onChange={modifyText} type="text" name="what"  value={newEntry.what} />
-      <Input onChange={modifyText} type="text" name="desc"  value={newEntry.desc} />
-
-      <InputOkClear ok={confirm} clear={entryPurge}/>
-
       {
         getter.experience.map(({when, where, what, desc}, indx) => 
           <div key={indx} className={css.entries}>
@@ -35,6 +28,11 @@ export default function FieldExperience({ getter, setter }){
             <button data-index={indx} onClick={entryDelete} className={css.remove}><img src={trash}/></button>
           </div>)
       }
+      <Input onChange={modifyText} type="text" name="when"  value={newEntry.when} />
+      <Input onChange={modifyText} type="text" name="where" value={newEntry.where} />
+      <Input onChange={modifyText} type="text" name="what"  value={newEntry.what} />
+      <Input onChange={modifyText} type="text" name="desc"  value={newEntry.desc} />
+      <InputOkClear ok={confirm} clear={entryPurge}/>
     </>
   )
 }

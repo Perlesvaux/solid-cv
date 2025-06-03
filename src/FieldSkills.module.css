@@ -19,6 +19,14 @@
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
+.inputs > div > label {
+  background-color: var(--brown1);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.inputs > div > label > button {
+  border-radius: 0;
+}
 
 .remove {
   display: flex;

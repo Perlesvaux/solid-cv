@@ -18,10 +18,6 @@ export default function FieldSkills({ getter, setter }){
 
   return (
     <>
-      <InputDropdown type="text" name="icon"  value={newEntry.icon} onChange={modifyDropdown} options={skillOptions} />
-      <Input type="text" name="skill" value={newEntry.skill} onChange={modifyText} />
-      <InputOkClear ok={confirm} clear={entryPurge}/>
-
       {
         getter.skills.map(({icon, skill}, indx) => 
           <div key={indx} className={css.entries}> 
@@ -32,6 +28,9 @@ export default function FieldSkills({ getter, setter }){
             <button data-index={indx} onClick={entryDelete} className={css.remove}><img src={trash}/></button>
           </div>)
       }
+      <InputDropdown type="text" name="icon"  value={newEntry.icon} onChange={modifyDropdown} options={skillOptions} />
+      <Input type="text" name="skill" value={newEntry.skill} onChange={modifyText} />
+      <InputOkClear ok={confirm} clear={entryPurge}/>
     </>
   )
 }

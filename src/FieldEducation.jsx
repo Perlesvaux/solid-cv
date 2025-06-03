@@ -23,13 +23,6 @@ export default function FieldEducation({ getter, setter }){
 
   return (
     <>
-      <Input onChange={modifyText} type="text" name="institution" value={newEntry.institution} />
-      <Input onChange={modifyText} type="text" name="title" value={newEntry.title} />
-      <Input onChange={modifyText} type="text" name="url" value={newEntry.url} />
-      <InputImage name="image" onChange={modifyImage} deleter={eraseImage} />
-
-      <InputOkClear ok={confirm} clear={entryPurge}/>
-
       {
         getter.education.map(({institution, title, url, image}, indx) => 
           <div key={indx} className={css.entries}>
@@ -43,6 +36,11 @@ export default function FieldEducation({ getter, setter }){
             <button data-index={indx} onClick={entryDelete} className={css.remove}><img src={trash} /></button>
           </div>)
       }
+      <Input onChange={modifyText} type="text" name="institution" value={newEntry.institution} />
+      <Input onChange={modifyText} type="text" name="title" value={newEntry.title} />
+      <Input onChange={modifyText} type="text" name="url" value={newEntry.url} />
+      <InputImage name="image" onChange={modifyImage} deleter={eraseImage} />
+      <InputOkClear ok={confirm} clear={entryPurge}/>
     </>
   )
 }

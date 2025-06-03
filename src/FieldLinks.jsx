@@ -16,10 +16,6 @@ export default function FieldLinks({ getter, setter }){
 
   return (
     <>
-      <Input type="text" name="site" value={newEntry.site} onChange={modifyText} />
-      <Input type="url" name="url" value={newEntry.url} onChange={modifyText} />
-      <InputOkClear ok={confirm} clear={entryPurge} />
-
       {
         getter.links.map(({site, url}, indx) => 
           <div key={indx} className={css.entries}>
@@ -30,6 +26,9 @@ export default function FieldLinks({ getter, setter }){
             <button data-index={indx} onClick={entryDelete} className={css.remove}><img src={trash} /></button>
           </div>)
       }
+      <Input type="text" name="site" value={newEntry.site} onChange={modifyText} />
+      <Input type="url" name="url" value={newEntry.url} onChange={modifyText} />
+      <InputOkClear ok={confirm} clear={entryPurge} />
     </>
   )
 }
