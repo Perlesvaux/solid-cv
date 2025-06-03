@@ -1,5 +1,6 @@
 #root {
---black-glass:rgba(65, 58, 44, 0.8);
+/*--black-glass:rgba(65, 58, 44, 0.8);*/
+--black-glass:rgba(41, 41, 41, 0.8);
 --brown1:#333333;
 --brown2:rgba(41,41,41, 0.7);
 --brown3:#666666;

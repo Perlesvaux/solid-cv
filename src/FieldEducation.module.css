@@ -28,7 +28,7 @@
   box-sizing:content-box;
   background-color: var(--brown1);
   z-index: 1;
-  opacity: 0.5;
+  /*opacity: 0.5;*/
 } 
 .remove > img {
   z-index: -1;

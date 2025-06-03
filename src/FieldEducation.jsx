@@ -36,6 +36,7 @@ export default function FieldEducation({ getter, setter }){
             <button data-index={indx} onClick={entryDelete} className={css.remove}><img src={trash} /></button>
           </div>)
       }
+      <strong>+ Education</strong>
       <Input onChange={modifyText} type="text" name="institution" value={newEntry.institution} />
       <Input onChange={modifyText} type="text" name="title" value={newEntry.title} />
       <Input onChange={modifyText} type="text" name="url" value={newEntry.url} />

@@ -21,7 +21,7 @@
 .ok {
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
-  background-color: var(--brown4);
+  background-color: var(--brown1);
   /*opacity: .5;*/
 }
 .ok > img {

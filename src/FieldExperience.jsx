@@ -28,7 +28,7 @@ export default function FieldExperience({ getter, setter }){
             <button data-index={indx} onClick={entryDelete} className={css.remove}><img src={trash}/></button>
           </div>)
       }
-      <strong>EXPERIENCE</strong>
+      <strong>+ Experience</strong>
       <Input onChange={modifyText} type="text" name="when"  value={newEntry.when} />
       <Input onChange={modifyText} type="text" name="where" value={newEntry.where} />
       <Input onChange={modifyText} type="text" name="what"  value={newEntry.what} />
