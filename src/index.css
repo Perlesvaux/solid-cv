@@ -1,8 +1,25 @@
 #root {
---brown1:#413a2c;
---brown2:#856c4d;
---brown3:#A59471;
---brown4:#DACAB0;
+--black-glass:rgba(65, 58, 44, 0.8);
+--brown1:#333333;
+--brown2:rgba(41,41,41, 0.7);
+--brown3:#666666;
+--brown4:gray;
+--brown5:rgba(179,179,179, 0.8);
+
+/*--brown1:rgba(65, 58, 44, 1);*/
+/*--brown2:rgba(65, 58, 44, 0.8);*/
+/*--brown3:rgba(65, 58, 44, 0.6);*/
+/*--brown4:rgba(65, 58, 44, 0.4);*/
+/*--brown5:rgba(0, 44, 44, 0.1);*/
+
+
+
+
+
+/*--brown1:#413a2c;*/
+/*--brown2:#856c4d;*/
+/*--brown3:#A59471;*/
+/*--brown4:#DACAB0;*/
 --blue1:#e1e1e1;
 --blue2:#c8d2ca;
 --blue3:#709fa4;
