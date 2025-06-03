@@ -13,7 +13,7 @@
   /*height: 90vh;*/
   overflow-y: auto; 
   position: relative;
-  width: 400px;
+  width: var(--w);
   display: flex;
   flex-direction: column;
   row-gap: 8px;
@@ -125,7 +125,7 @@
 
 
   .dashboard {
-    width:100%;
+    width:var(--portrait-w);
   }
 }
 

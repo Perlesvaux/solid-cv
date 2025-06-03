@@ -27,7 +27,7 @@
 @media (orientation: portrait) {
   .container {
     /*background-color: cyan;*/
-    width: 100%;
+    width: var(--portrait-w);
     height: 15vh;
     overflow-y: visible;
   }

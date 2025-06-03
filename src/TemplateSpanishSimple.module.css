@@ -71,6 +71,7 @@
   display: grid;
   grid-template-columns: 30% auto;
   /*background-color: antiquewhite;*/
+  column-gap: 2vh;
 }
 .mapping > article {
   /*background-color: red;*/
