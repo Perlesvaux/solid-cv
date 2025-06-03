@@ -4,7 +4,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base:'/solid-resume/' ,
+  base:'/' ,
   plugins: [
     react(),
     VitePWA({
@@ -22,7 +22,7 @@ export default defineConfig({
               "sizes": "192x192",
               "type": "image/png"
             }],
-        start_url:'/solid-resume/' ,
+        start_url:'/' ,
         screenshots: [
         {
           src: "screenshot-narrow.png",

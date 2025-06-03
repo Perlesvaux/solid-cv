@@ -111,7 +111,8 @@
 
 @media (orientation: portrait) {
   .screen {
-    background-color: red;
+    /*background-color: red;*/
+    row-gap: 8px;
     flex-direction: column;
     align-items: center;
     height: auto;
