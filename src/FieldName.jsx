@@ -12,6 +12,7 @@ export default function FieldName({ getter, setter }){
       name="name"
       value={getter.name} 
       onChange={singleUpdate} 
+      placeholder="John Doe"
       />
   )
 }

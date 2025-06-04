@@ -12,6 +12,7 @@ export default function FieldEmail({ getter, setter }){
       name="email" 
       value={getter.email} 
       onChange={singleUpdate} 
+      placeholder="major_zero@cypher.com"
      />
   )
 }

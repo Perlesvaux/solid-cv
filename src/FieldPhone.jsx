@@ -12,6 +12,7 @@ export default function FieldPhone({ getter, setter }){
       name="phone" 
       value={getter.phone} 
       onChange={singleUpdate} 
+      placeholder="18001418000"
      />
   )
 }

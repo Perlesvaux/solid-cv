@@ -12,6 +12,7 @@ export default function FieldProfile({ getter, setter }){
       name='profile'
       value={getter.profile} 
       onChange={singleUpdate} 
+      placeholder="Renowned special forces operative and mercenary commander. Founded U.S. Army Special Forces Unit FOXHOUND, along with the mercenary company Militaires Sans Frontières. Founding member of the Patriots."
     />
   )
 }

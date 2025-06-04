@@ -37,9 +37,9 @@ export default function FieldEducation({ getter, setter }){
           </div>)
       }
       <strong>+ Education</strong>
-      <Input onChange={modifyText} type="text" name="institution" value={newEntry.institution} />
-      <Input onChange={modifyText} type="text" name="title" value={newEntry.title} />
-      <Input onChange={modifyText} type="text" name="url" value={newEntry.url} />
+      <Input onChange={modifyText} type="text" name="institution" value={newEntry.institution} placeholder="MIT" />
+      <Input onChange={modifyText} type="text" name="title" value={newEntry.title} placeholder="Mechanical Engineering" />
+      <Input onChange={modifyText} type="text" name="url" value={newEntry.url} placeholder="https://ocw.mit.edu/" />
       <InputImage name="image" onChange={modifyImage} deleter={eraseImage} />
       <InputOkClear ok={confirm} clear={entryPurge}/>
     </>

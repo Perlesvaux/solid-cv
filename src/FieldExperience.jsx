@@ -29,10 +29,10 @@ export default function FieldExperience({ getter, setter }){
           </div>)
       }
       <strong>+ Experience</strong>
-      <Input onChange={modifyText} type="text" name="when"  value={newEntry.when} />
-      <Input onChange={modifyText} type="text" name="where" value={newEntry.where} />
-      <Input onChange={modifyText} type="text" name="what"  value={newEntry.what} />
-      <Input onChange={modifyText} type="text" name="desc"  value={newEntry.desc} />
+      <Input onChange={modifyText} type="text" name="when"  value={newEntry.when}  placeholder="1995-1995"  />
+      <Input onChange={modifyText} type="text" name="where" value={newEntry.where} placeholder="Foxhound" />
+      <Input onChange={modifyText} type="text" name="what"  value={newEntry.what}  placeholder="Intruder N313" />
+      <Input onChange={modifyText} type="text" name="desc"  value={newEntry.desc}  placeholder="Rescue Gray Fox and find out the truth behind Metal Gear. " />
       <InputOkClear ok={confirm} clear={entryPurge}/>
     </>
   )

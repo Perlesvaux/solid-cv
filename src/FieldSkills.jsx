@@ -30,7 +30,7 @@ export default function FieldSkills({ getter, setter }){
       }
       <strong>+ Skills</strong>
       <InputDropdown type="text" name="icon"  value={newEntry.icon} onChange={modifyDropdown} options={skillOptions} />
-      <Input type="text" name="skill" value={newEntry.skill} onChange={modifyText} />
+      <Input type="text" name="skill" value={newEntry.skill} onChange={modifyText} placeholder="Leadership, Problem Solving, Adaptability, Networking" />
       <InputOkClear ok={confirm} clear={entryPurge}/>
     </>
   )

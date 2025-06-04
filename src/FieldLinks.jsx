@@ -27,8 +27,8 @@ export default function FieldLinks({ getter, setter }){
           </div>)
       }
       <strong>+ Links</strong>
-      <Input type="text" name="site" value={newEntry.site} onChange={modifyText} />
-      <Input type="url" name="url" value={newEntry.url} onChange={modifyText} />
+      <Input type="text" name="site" value={newEntry.site} onChange={modifyText} placeholder="LinkedIn" />
+      <Input type="url" name="url" value={newEntry.url} onChange={modifyText}  placeholder="www.linkedin.com/in/bigboss1984" />
       <InputOkClear ok={confirm} clear={entryPurge} />
     </>
   )
