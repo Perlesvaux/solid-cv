@@ -12,7 +12,7 @@ export default function TemplateSpanishSimple({ getter }){
 
     <h3>Contacto</h3>
     <div className={css.mapping}>
-      <article> <p> <img src={phone} /> Telephone </p></article>
+      <article> <p> <img src={phone} /> Teléfono </p></article>
       <article> <p>  <a href={`tel:${getter.phone}`} target='_blank'>{getter.phone}</a> </p> </article>
     </div>
 
@@ -30,7 +30,7 @@ export default function TemplateSpanishSimple({ getter }){
 
 
 
-    {getter.experience.length>0 && <h3>Experiencia</h3>}
+    {getter.experience.length>0 && <h3>Experience</h3>}
     { 
       
       getter.experience.map(({when, where, what, desc}, indx) => <div key={indx} className={css.mapping}>

@@ -13,7 +13,7 @@ export default function TemplateSimple({ getter }){
 
     <h3>Contact</h3>
     <div className={css.mapping}>
-      <article> <p> <img src={phone} /> Teléfono </p></article>
+      <article> <p> <img src={phone} /> Telephone </p></article>
       <article> <p>  <a href={`tel:${getter.phone}`} target='_blank'>{getter.phone}</a> </p> </article>
     </div>
 
