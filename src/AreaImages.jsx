@@ -13,18 +13,13 @@ export default function AreaImages({getter}){
     <button onClick={toggle} className={css.toggle}> <img src={visibility? img_on : img_off} /> </button>
     { visibility &&
       getter.education.map(({institution, title, url, image}, indx) => 
-
-    <>
-      { image &&
-          <div key={indx} className={css.card}>
+        image &&
+          (<div key={indx} className={css.card}>
             <figure>
               <img src={image}/>
               <figcaption><a href={url}>{title} @ {institution}</a></figcaption>
             </figure> 
-          </div>
-        }
-
-    </>
+          </div>)
       )
     }
   </>
