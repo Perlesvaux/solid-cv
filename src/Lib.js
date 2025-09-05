@@ -2,6 +2,7 @@ import {useReducer, useState, useEffect, useRef} from 'react'
 
 const blueprint = {
   // Contact
+  photo:           '',
   name:            '',
   phone:           '',
   email:           '',
@@ -129,8 +130,26 @@ export function useHandler (setter, field, initial){
     }
   };
 
+  // Shared state setter to handle single images
+  const singleImageDelete = () => { setter({type:'update property', field:field, value:''}) }
+
+  const singleImageEdit = (e) => {
+    const file = e.target.files[0]
+    if (file) {
+      const reader = new FileReader();
+      reader.readAsDataURL(file)
+      reader.onloadend = () => setter({
+        type:'update property', field:field, value:reader.result, at:Number(e.target.dataset.index)
+      });
+      console.log(file, file.name)
+    }
+  }
+
+
+
   // Shared state setter to handle existing image entries.
   const entryImageDelete = (e) => { setter({ type:'update entry', field:field, value:'', at:Number(e.currentTarget.dataset.index), part:e.currentTarget.dataset.part });console.log(e.currentTarget) }
+
 
   const entryImageEdit = (e) => {
     const file = e.target.files[0]
@@ -157,7 +176,7 @@ export function useHandler (setter, field, initial){
   }
 
 
-  return {newEntry, modifyText, modifyImage, eraseImage, entryPurge, entryDelete, entryEdit, confirm, entryImageDelete, entryImageEdit, singleUpdate, singleDelete, dump, entryDropdownEdit, modifyDropdown}
+  return {newEntry, modifyText, modifyImage, eraseImage, entryPurge, entryDelete, entryEdit, confirm, entryImageDelete, entryImageEdit, singleUpdate, singleDelete, dump, entryDropdownEdit, modifyDropdown, singleImageDelete, singleImageEdit}
 
 
 
