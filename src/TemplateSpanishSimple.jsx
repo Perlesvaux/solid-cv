@@ -8,7 +8,10 @@ import phone from './assets/phone.svg'
 export default function TemplateSpanishSimple({ getter }){
 
   return <section className={css.template}>
-    <h1>{getter.name}</h1>
+    <div className={css.header} >
+      {getter.photo && <img className={css.photo} src={getter.photo}/>}
+      <h1>{getter.name}</h1>
+    </div>
 
     <h3>Contacto</h3>
     <div className={css.mapping}>

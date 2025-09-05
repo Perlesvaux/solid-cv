@@ -112,6 +112,22 @@
   transform: scale(0.95);
 }
 
+.photo {
+  width: 150px;   /* adjust size */
+  height: 150px;  /* keep width & height equal */
+  border-radius: 50%; /* makes it circular */
+  object-fit: cover;  /* crops nicely if not perfectly square */
+  border: 2px solid #ccc; /* optional subtle border */
+
+
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 25% auto;
+  align-items: end;
+}
+
 /*.mapping > article > p > img {*/
 /**/
 /*}*/
