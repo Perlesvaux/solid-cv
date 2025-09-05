@@ -65,7 +65,7 @@ export default function TemplateSpanishSimple({ getter }){
     }
 
 
-    <h3>Perfil</h3>
+    <h3>Acerca de mí</h3>
     <article>{getter.profile}</article>
 
     <div className={css.break}/>
