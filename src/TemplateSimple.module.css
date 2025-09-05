@@ -128,6 +128,12 @@
   align-items: end;
 }
 
+.three {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  column-gap: 2vh;
+}
+
 /*.mapping > article > p > img {*/
 /**/
 /*}*/

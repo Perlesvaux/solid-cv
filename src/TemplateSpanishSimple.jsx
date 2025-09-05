@@ -68,6 +68,19 @@ export default function TemplateSpanishSimple({ getter }){
     <h3>Acerca de mí</h3>
     <article>{getter.profile}</article>
 
+
+    { getter.references && getter.references.length>0 && <h3>Referencias</h3>}
+    <div  className={css.three}>
+      { 
+       getter.references &&  getter.references.map(({reference, contact}, indx) => 
+          <article key={indx}>
+            <p><strong>{reference}</strong></p> 
+            <p>{contact}</p> 
+          </article>
+        )
+      }
+    </div>
+
     <div className={css.break}/>
 
   </section>

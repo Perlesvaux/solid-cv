@@ -15,10 +15,13 @@ const blueprint = {
   skills:          [],
 
   // Education 
-  education: [],
+  education:       [],
+
+  // References
+  references:      [],
 
   // Profile
-  profile:         ''
+  profile:         '',
 }
 
 

@@ -20,6 +20,7 @@ import Dump from './Dump.jsx'
 import DumpLoader from './DumpLoader.jsx'
 import DumpPrint from './DumpPrint.jsx'
 import FieldPhoto from './FieldPhoto.jsx'
+import FieldReferences from './FieldReferences.jsx'
 //import AreaImages from './AreaImages.jsx'
 //import TemplateSimple from './TemplateSimple.jsx'
 
@@ -54,6 +55,7 @@ export default function App() {
           <FieldEmail getter={state} setter={action} />
           <FieldPhone getter={state} setter={action} />
           <FieldProfile getter={state} setter={action} />
+          <FieldReferences getter={state} setter={action} />
         </div>
 
         <div className={css.field}>
