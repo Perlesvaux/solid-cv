@@ -13,6 +13,10 @@
 
 }
 
+button img {
+  pointer-events: none;
+}
+
 
 .options {
   z-index: 9;
