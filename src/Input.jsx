@@ -5,7 +5,7 @@ export default function Input({ index, name, type, value, onChange, deleter, pla
   return (<>
     <label className={css.container}>
       { name }
-      <input data-index={index} name={name} type={type} value={value} onChange={onChange} placeholder={placeholder} />
+      <textarea data-index={index} name={name} type={type} value={value} onChange={onChange} placeholder={placeholder} />
       { deleter && <button onClick={deleter}>X</button> }
     </label>
   </>)

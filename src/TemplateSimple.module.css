@@ -123,8 +123,10 @@
 }
 
 .header {
-  display: grid;
-  grid-template-columns: 25% auto;
+  /*display: grid;*/
+  /*grid-template-columns: 25% auto;*/
+  display: flex;
+  flex-wrap: wrap;
   align-items: end;
 }
 

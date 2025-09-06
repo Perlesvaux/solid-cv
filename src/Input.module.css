@@ -14,3 +14,7 @@
   border-bottom-right-radius: 20px;
   box-sizing:content-box;
 }
+
+.container > textarea {
+  max-width: 100%;
+}

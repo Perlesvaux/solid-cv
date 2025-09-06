@@ -9,7 +9,7 @@ export default function TemplateSpanishSimple({ getter }){
 
   return <section className={css.template}>
     <div className={css.header} >
-      {getter.photo && <img className={css.photo} src={getter.photo}/>}
+      {getter.photo ? <img className={css.photo} src={getter.photo}/> : <div></div>}
       <h1>{getter.name}</h1>
     </div>
 

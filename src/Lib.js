@@ -266,6 +266,7 @@ import github from './assets/github.svg'
 import linkedin from './assets/linkedin.svg'
 import share from './assets/share.svg'
 import chrome from './assets/chrome.svg'
+import address from './assets/location.svg'
 
 export const linkIcon = (name) => {
 
@@ -299,6 +300,12 @@ export const linkIcon = (name) => {
 
     case "facebook":
       return facebook;
+
+    case "address":
+      return address;
+
+    case "dirección":
+     return address;
 
     default:
       return share;
