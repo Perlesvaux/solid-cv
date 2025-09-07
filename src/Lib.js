@@ -6,6 +6,8 @@ const blueprint = {
   name:            '',
   phone:           '',
   email:           '',
+  title:           '',
+
   links:  [],
 
   // Experience
@@ -196,7 +198,9 @@ export const isValidJSON = (json) => [
   'experience',
   'skills',
   'education',
-  'profile'
+  'profile',
+  'title',
+  'references'
 ].every((property)=>property in json)
 
 

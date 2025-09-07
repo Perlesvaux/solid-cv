@@ -11,6 +11,7 @@ import {useResume} from './Lib.js'
 import FieldProfile from './FieldProfile.jsx'
 import FieldName from './FieldName.jsx'
 import FieldEmail from './FieldEmail.jsx'
+import FieldTitle from './FieldTitle.jsx'
 import FieldPhone from './FieldPhone.jsx'
 import FieldSkills from './FieldSkills.jsx'
 import FieldExperience from './FieldExperience.jsx'
@@ -52,6 +53,7 @@ export default function App() {
           <h2>Basic info</h2>
           <FieldPhoto getter={state} setter={action} />
           <FieldName getter={state} setter={action} />
+          <FieldTitle getter={state} setter={action} />
           <FieldEmail getter={state} setter={action} />
           <FieldPhone getter={state} setter={action} />
           <FieldProfile getter={state} setter={action} />

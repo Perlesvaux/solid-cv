@@ -128,6 +128,22 @@
   display: flex;
   flex-wrap: wrap;
   align-items: end;
+  gap:2vh;
+}
+
+.nameAndTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.title {
+  font-size: 0.9em;
+  color: slategray;
+  opacity: 0.75;
+
 }
 
 .three {
