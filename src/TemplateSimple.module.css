@@ -116,8 +116,14 @@
   width: 150px;   /* adjust size */
   height: 150px;  /* keep width & height equal */
   border-radius: 50%; /* makes it circular */
-  object-fit: cover;  /* crops nicely if not perfectly square */
-  border: 2px solid #ccc; /* optional subtle border */
+
+  /* crops nicely if not perfectly square */
+  /*object-fit: cover;  */
+
+  /*  the image keeps its aspect ratio, but is resized to fit within the given dimension */
+  object-fit: contain;  
+  background-color: var(--color-primary);
+
 
 
 }
@@ -135,13 +141,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  /*align-items: center;*/
 
 }
 
 .title {
   font-size: 0.9em;
-  color: slategray;
+  color: var(--color-primary);
   opacity: 0.75;
 
 }

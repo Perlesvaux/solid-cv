@@ -22,6 +22,9 @@ const blueprint = {
   // References
   references:      [],
 
+  // Documents
+  documents:       [],
+
   // Profile
   profile:         '',
 }
@@ -192,6 +195,7 @@ export function useHandler (setter, field, initial){
 
 export const isValidJSON = (json) => [
   'name',
+  'photo',
   'phone',
   'email',
   'links',
@@ -200,7 +204,8 @@ export const isValidJSON = (json) => [
   'education',
   'profile',
   'title',
-  'references'
+  'references',
+  'documents'
 ].every((property)=>property in json)
 
 

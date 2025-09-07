@@ -22,6 +22,16 @@ export default function AreaImages({getter}){
           </div>)
       )
     }
+    { visibility &&
+      getter.documents.map(({title, image}, indx) => 
+        image &&
+          (<div key={indx} className={css.card}>
+            <figure>
+              <img alt={title} src={image}/>
+            </figure> 
+          </div>)
+      )
+    }
   </>
 }
 
