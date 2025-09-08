@@ -65,13 +65,15 @@
   .card {
     /*position: absolute;*/
     display: flex;
-    height: 96vh;
+    justify-content: center;
+    align-items: center;
     margin: 0;
     padding: 0;
+    height: 100svh;
   }
 
   .card img {
-    height: auto;
-    width:90vw;
+    max-height: 89svh;
+    object-fit: contain;
   }
 }
