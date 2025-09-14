@@ -37,7 +37,7 @@ export default function TemplateSpanishSimple({ getter }){
 
 
 
-    {getter.experience.length>0 && <h3>Experience</h3>}
+    {getter.experience.length>0 && <h3>Experiencia</h3>}
     { 
       
       getter.experience.map(({when, where, what, desc}, indx) => <div key={indx} className={css.mapping}>

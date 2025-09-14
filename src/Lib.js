@@ -128,10 +128,12 @@ export function useHandler (setter, field, initial){
   const dump = (e) => {
     try {
       const json = JSON.parse(e.target.result);
-      if (isValidJSON(json)) {
+      const {isValid, correctedJSON} = isValidJSON(json)
+      if (isValid) {
         setter({type:'clone', dump:json});
       } else {
         alert('Invalid JSON format!');
+        setter({type:'clone', dump:correctedJSON});
       }
     } catch (error) {
       alert(`Error reading JSON file! ${error}`);
@@ -193,20 +195,39 @@ export function useHandler (setter, field, initial){
 
 
 
-export const isValidJSON = (json) => [
-  'name',
-  'photo',
-  'phone',
-  'email',
-  'links',
-  'experience',
-  'skills',
-  'education',
-  'profile',
-  'title',
-  'references',
-  'documents'
-].every((property)=>property in json)
+export const isValidJSON = (json) => {
+  const fields = [
+    {property:'name',       initial:'' },
+    {property:'photo',      initial:'' },
+    {property:'phone',      initial:'' },
+    {property:'email',      initial:'' },
+    {property:'title',      initial:'' },
+    {property:'profile',    initial:'' },
+    {property:'links',      initial:[] },
+    {property:'experience', initial:[] },
+    {property:'skills',     initial:[] },
+    {property:'education',  initial:[] },
+    {property:'references', initial:[] },
+    {property:'documents',  initial:[] }
+  ]
+
+  const isValid = fields.every(({property})=>property in json)
+
+  if (isValid) return { isValid, correctedJSON:{} }
+
+  const newFields = fields.filter(({property})=> !(property in json))
+
+  console.log(newFields)
+
+  let correctedJSON = {...json}
+
+  for (const {property, initial} of newFields){
+    console.log(property, initial)
+    correctedJSON = {...correctedJSON, [property]:initial}
+  }
+
+  return {isValid, correctedJSON}
+}
 
 
 
