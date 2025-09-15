@@ -145,6 +145,10 @@
 
 }
 
+.nameAndTitle h1 {
+  max-width: 500px;
+}
+
 .title {
   font-size: 0.9em;
   color: var(--color-primary);
